@@ -17,8 +17,9 @@ const SearchBar = () => {
         justifyContent: "center",
         alignItems: "center",
         width: "30%",
-        borderRadius: "2rem",
-        paddingLeft: "1rem"
+        borderRadius: "41px",
+        paddingLeft: "1rem",
+        background: "#fff"
       }}
     >
       <i data-eva="search" data-eva-hover />

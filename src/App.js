@@ -3,14 +3,11 @@ import React from "react";
 import "./App.css";
 
 import Header from "./components/header";
-// import Logo from "./components/logo";
-// import SearchBar from "./components/searchBar";
-// import Color from "./components/color";
-// import Tile from "./components/tile";
-import Mood from "./components/mood";
+import Workspace from "./components/workspace";
 // import Upload from "./components/upload";
 
 let state = {
+  slidePanel: "images/feathers.jpg",
   images: [
     "images/feathers.jpg",
     "images/feathers.jpg",
@@ -152,20 +149,14 @@ let state = {
 function App() {
   return (
     <div className="App" style={{ minHeight: "100vh" }}>
-      <Header />
-      <div
-        style={{
-          display: "flex",
-          flexFlow: "column nowrap",
-          justifyContent: "space-between",
-          alignItems: "center"
-        }}
-      >
-        <Mood name="wild west" images={state.images} colors={state.colors} />
-        {state.moods.map(mood => (
-          <Mood name="Mood" images={mood} colors={state.colors} />
-        ))}
-      </div>
+      <Header style={{ position: "relative" }} />
+      <Workspace
+        sideBar={state.sideBar}
+        images={state.images}
+        colors={state.colors}
+        moods={state.moods}
+        // style={{ position: "relative" }}
+      />
     </div>
   );
 }
