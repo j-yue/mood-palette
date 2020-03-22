@@ -6,12 +6,17 @@ import Image from "./image";
 // const
 
 const Tile = ({ src, colors }) => {
+  //unique key
+  let count = 0;
   return (
     <Box sx={{ width: "20%" }}>
-      <Image src={src} />
+      <Image
+        src={src}
+        // handleMouseEnter={() => console.log("hi")}
+      />
       <Flex>
         {colors.map(color => (
-          <Color color={color} />
+          <Color key={color + count++} color={color} />
         ))}
       </Flex>
     </Box>

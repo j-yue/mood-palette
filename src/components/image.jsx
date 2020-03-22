@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Rebass from "rebass";
 
 const Image = ({ src }) => {
+  const [className, setClassName] = useState(null);
+
   return (
     <Rebass.Image
+      className={className}
       src={src}
-      //   sx={{ width: "15vw", height: "15vw" }}
+      onMouseEnter={() => setClassName("blurImage")}
+      onMouseLeave={() => setClassName(null)}
     />
   );
 };

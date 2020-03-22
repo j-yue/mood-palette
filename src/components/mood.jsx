@@ -9,16 +9,16 @@ const Mood = ({ name, images, colors }) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <div>
       <Heading>{name}</Heading>
-      <Flex sx={{ alignItems: "center" }}>
+      <Flex sx={{ alignItems: "center", justifyContent: "center" }}>
         <i data-eva="arrow-left" />
         <div style={{ width: "80%" }}>
           <TileList images={images} colors={colors} />
         </div>
         <i data-eva="arrow-right" />
       </Flex>
-    </React.Fragment>
+    </div>
   );
 };
 
