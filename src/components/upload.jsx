@@ -15,7 +15,6 @@ const Upload = () => {
         width: "50%"
       }}
     >
-      {/* <p>upload photo(s)</p> */}
       <Input
         id="upload"
         type="file"

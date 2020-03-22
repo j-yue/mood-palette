@@ -1,15 +1,24 @@
-import React from "react";
-import { Flex } from "rebass";
-import Tile from "./tile";
+import React, { useEffect } from "react";
+import { Flex, Heading } from "rebass";
+import * as eva from "eva-icons";
+import TileList from "./tileList";
 
-const Mood = ({ images, colors }) => {
-  let count = 0;
+const Mood = ({ name, images, colors }) => {
+  useEffect(() => {
+    eva.replace();
+  }, []);
+
   return (
-    <Flex>
-      {images.map(image => (
-        <Tile src={image} colors={colors[count++]} />
-      ))}
-    </Flex>
+    <React.Fragment>
+      <Heading>{name}</Heading>
+      <Flex sx={{ alignItems: "center" }}>
+        <i data-eva="arrow-left" />
+        <div style={{ width: "80%" }}>
+          <TileList images={images} colors={colors} />
+        </div>
+        <i data-eva="arrow-right" />
+      </Flex>
+    </React.Fragment>
   );
 };
 
