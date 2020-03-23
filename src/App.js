@@ -148,7 +148,7 @@ let state = {
 
 function App() {
   return (
-    <div className="App" style={{ minHeight: "100vh" }}>
+    <div className="App" style={{ minHeight: "1024px" }}>
       <Header style={{ position: "relative" }} />
       <Workspace
         slidePanel={state.slidePanel}

@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import * as eva from "eva-icons";
-import { Box, Flex } from "rebass";
+import { Box, Image, Flex } from "rebass";
 import BlurredImage from "./blurredImage";
 import RoundColor from "./roundColor";
+import Swatch from "./swatch";
+// import Image from './image';
 
 const SlidePanel = ({ src, colors }) => {
   useEffect(() => {
@@ -17,11 +19,13 @@ const SlidePanel = ({ src, colors }) => {
         background: "#aaa",
         position: "fixed",
         bottom: "0",
-        right: "0"
+        right: "0",
+        overflowY: "scroll"
       }}
     >
       <i data-eva="close" />
       <h3>Mood Board name</h3>
+      {/* <Flex> */}
       <Box sx={{ width: "30%" }}>
         <BlurredImage src={src} />
       </Box>
@@ -36,14 +40,18 @@ const SlidePanel = ({ src, colors }) => {
           alignItems: "center"
         }}
       >
-        {/* <Flex> */}
         <RoundColor color={"#222"} />
         <RoundColor color={"#666"} />
-        {/* </Flex> */}
       </Box>
-      <p>images</p>
-      <p>images</p>
-      <p>images</p>
+      {/* </Flex> */}
+      <Box>
+        <Image src={src} sx={{ height: "100px" }} />
+      </Box>
+      <Box>
+        <Swatch color="#444" />
+        <Swatch color="#ccc123" />
+        <Swatch color="#444" />
+      </Box>
     </div>
   );
 };
