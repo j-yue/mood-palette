@@ -12,7 +12,7 @@ const Upload = () => {
         flexFlow: "column nowrap",
         justifyContent: "center",
         alignItems: "center",
-        width: "30%",
+        width: "40%",
         color: "#fff"
       }}
     >

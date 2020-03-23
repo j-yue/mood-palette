@@ -1,30 +1,22 @@
 import React from "react";
-import { Box, Flex } from "rebass";
+import { Box, Flex, Heading } from "rebass";
 import Logo from "./logo";
 import SearchBar from "./searchBar";
 import Upload from "./upload";
 
 const Header = () => {
   return (
-    <Box
-      style={{
-        // height: "317px",
-        height: "30vh",
-        position: "fixed",
-        width: "100%",
-        background: "#1B1B1B"
-      }}
-    >
+    <Box bg="#1B1B1B" px={64} py={32}>
       <Flex sx={{ flexFlow: "column wrap", height: "100%" }}>
         <Logo />
         <Box sx={{ width: "100%" }}>
-          <Flex sx={{ justifyContent: "space-around", alignItems: "center" }}>
+          <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
             <SearchBar />
-            <span
-              style={{ fontWeight: "bold", color: "#fff", fontSize: "2rem" }}
+            <Heading
+              sx={{ width: "10%", textTransform: "uppercase", color: "white" }}
             >
-              OR
-            </span>
+              or
+            </Heading>
             <Upload />
           </Flex>
         </Box>

@@ -7,6 +7,8 @@ const Logo = () => {
       fontSize={[5, 6, 7]}
       color="primary"
       sx={{
+        minWidth: "100%",
+        width: "100%",
         color: "#fff",
         textAlign: "left",
         height: "72px",

@@ -1,10 +1,11 @@
 import React from "react";
-// import logo from "./logo.svg";
+import { ThemeProvider } from "theme-ui";
+import { Flex, Box } from "rebass";
 import "./App.css";
 
+import theme from "./themes/theme";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
-// import Upload from "./components/upload";
 
 let state = {
   slidePanel: "images/feathers.jpg",
@@ -148,16 +149,21 @@ let state = {
 
 function App() {
   return (
-    <div className="App" style={{ minHeight: "1024px" }}>
-      <Header style={{ position: "relative" }} />
-      <Workspace
-        slidePanel={state.slidePanel}
-        images={state.images}
-        colors={state.colors}
-        moods={state.moods}
-        // style={{ position: "relative" }}
-      />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Flex>
+          <Box>
+            <Header />
+            <Workspace
+              slidePanel={state.slidePanel}
+              images={state.images}
+              colors={state.colors}
+              moods={state.moods}
+            />
+          </Box>
+        </Flex>
+      </div>
+    </ThemeProvider>
   );
 }
 

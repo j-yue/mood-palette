@@ -16,7 +16,7 @@ const SearchBar = () => {
         flexFlow: "row nowrap",
         justifyContent: "center",
         alignItems: "center",
-        width: "30%",
+        width: "50%",
         borderRadius: "41px",
         paddingLeft: "1rem",
         background: "#fff"

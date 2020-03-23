@@ -12,7 +12,7 @@ const Workspace = ({ slidePanel, images, colors, moods }) => {
         alignItems: "center"
       }}
     >
-      <SlidePanel src={slidePanel} style={{ position: "fixed" }} />
+      {/* <SlidePanel src={slidePanel} style={{ position: "fixed" }} /> */}
       <div
         style={{
           paddingTop: "30vh"
