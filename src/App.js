@@ -151,7 +151,7 @@ function App() {
     <div className="App" style={{ minHeight: "100vh" }}>
       <Header style={{ position: "relative" }} />
       <Workspace
-        sideBar={state.sideBar}
+        slidePanel={state.slidePanel}
         images={state.images}
         colors={state.colors}
         moods={state.moods}
