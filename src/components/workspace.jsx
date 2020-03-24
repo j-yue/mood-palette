@@ -18,11 +18,13 @@ const Workspace = ({ slidePanel, images, colors, moods }) => {
       {/* <SlidePanel src={slidePanel} style={{ position: "fixed" }} /> */}
       <Box
         width="100%"
-        style={{
-          paddingTop: "24px"
-          //   width: "100%"
-          //   minWidth: "100vw"
-        }}
+        style={
+          {
+            //   paddingTop: "24px"
+            //   width: "100%"
+            //   minWidth: "100vw"
+          }
+        }
       >
         <Mood name="wild west" images={images} colors={colors} />
         {moods.map(mood => (

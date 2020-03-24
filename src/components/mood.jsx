@@ -10,13 +10,18 @@ const Mood = ({ name, images, colors }) => {
 
   return (
     <Flex
-      mx={82}
+      className="mood"
+      my={24}
       alignItems="center"
-      justifyContent="space-evenly"
+      justifyContent="center"
       maxWidth="100%"
-      // style={{ boxSizing: "border-box" }}
+      overflow="hidden"
     >
-      <Box>
+      <Box
+        className="left-wrapper"
+        maxWidth="0"
+        sx={{ position: "relative", left: "82px" }}
+      >
         <i
           data-eva="arrow-left"
           data-eva-fill="#D8D8D8"
@@ -24,8 +29,9 @@ const Mood = ({ name, images, colors }) => {
           data-eva-height="30px"
         />
       </Box>
-      <Flex mx={44} overflow="hidden">
-        <Box>
+      <Flex overflow="hidden">
+        {/* set max height to smaller size than inner container to hide scrollbar */}
+        <Box maxWidth="100%" mx={135} maxHeight="297px">
           <Heading
             sx={{
               textAlign: "left",
@@ -40,7 +46,12 @@ const Mood = ({ name, images, colors }) => {
           <TileList images={images} colors={colors} />
         </Box>
       </Flex>
-      <Box>
+      <Box
+        className="right-wrapper"
+        maxWidth="0"
+        // zIndex={2}
+        sx={{ position: "relative", right: "119px", zIndex: "100" }}
+      >
         <i
           data-eva="arrow-right"
           data-eva-fill="#D8D8D8"

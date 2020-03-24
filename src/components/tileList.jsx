@@ -7,12 +7,12 @@ const TileList = ({ images, colors }) => {
   let count = 0;
   return (
     <Flex
+      //scrollbar will be hidden in parent container
       overflowX="scroll"
-      // ml={-12}
-      mx={-12}
+      ml={-12}
       zIndex={1}
-      // justifyContent="flex-start"
-      // maxWidth="100%"
+      className="tileList"
+      justifyContent="flex-start"
     >
       {images.map(image => (
         <Box minWidth="298px" px="12px">
