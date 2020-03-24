@@ -12,17 +12,19 @@ const SearchBar = () => {
     <Box
       sx={{
         border: "1px solid #000",
+        height: "55px",
+        color: "#C2C2C2",
         display: "flex",
         flexFlow: "row nowrap",
         justifyContent: "center",
         alignItems: "center",
         width: "50%",
         borderRadius: "41px",
-        paddingLeft: "1rem",
+        paddingLeft: "21px",
         background: "#fff"
       }}
     >
-      <i data-eva="search" data-eva-hover />
+      <i data-eva="search" data-eva-height="20" data-eva-width="28" />
       <Input
         type="search"
         placeholder="Search for a color mood"

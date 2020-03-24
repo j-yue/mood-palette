@@ -13,7 +13,9 @@ const Upload = () => {
         justifyContent: "center",
         alignItems: "center",
         width: "40%",
-        color: "#fff"
+        height: "164px",
+        color: "#fff",
+        fonSize: "21px"
       }}
     >
       <Input

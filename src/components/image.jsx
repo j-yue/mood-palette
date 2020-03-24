@@ -10,6 +10,11 @@ const Image = ({ src }) => {
       src={src}
       onMouseEnter={() => setClassName("blurImage")}
       onMouseLeave={() => setClassName(null)}
+      height="190px"
+      style={{
+        borderTopRightRadius: "22px",
+        borderTopLeftRadius: "22px"
+      }}
     />
   );
 };
