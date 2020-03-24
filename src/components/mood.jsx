@@ -10,7 +10,6 @@ const Mood = ({ name, images, colors }) => {
 
   return (
     <Flex
-      className="mood"
       my={24}
       alignItems="center"
       justifyContent="center"
@@ -20,7 +19,7 @@ const Mood = ({ name, images, colors }) => {
       <Box
         className="left-wrapper"
         maxWidth="0"
-        sx={{ position: "relative", left: "82px" }}
+        sx={{ position: "relative", left: "75px" }}
       >
         <i
           data-eva="arrow-left"
@@ -31,7 +30,7 @@ const Mood = ({ name, images, colors }) => {
       </Box>
       <Flex overflow="hidden">
         {/* set max height to smaller size than inner container to hide scrollbar */}
-        <Box maxWidth="100%" mx={135} maxHeight="297px">
+        <Box maxWidth="100%" mx={135} maxHeight="297px" overflow="hidden">
           <Heading
             sx={{
               textAlign: "left",
@@ -47,9 +46,7 @@ const Mood = ({ name, images, colors }) => {
         </Box>
       </Flex>
       <Box
-        className="right-wrapper"
         maxWidth="0"
-        // zIndex={2}
         sx={{ position: "relative", right: "119px", zIndex: "100" }}
       >
         <i

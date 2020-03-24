@@ -10,6 +10,7 @@ const TileList = ({ images, colors }) => {
       //scrollbar will be hidden in parent container
       overflowX="scroll"
       ml={-12}
+      pl={-12}
       zIndex={1}
       className="tileList"
       justifyContent="flex-start"
