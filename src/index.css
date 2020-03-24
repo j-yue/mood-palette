@@ -1,3 +1,12 @@
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+}
+
 body {
   margin: 0;
   /* padding: 0 32px; */
@@ -6,6 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* margin-right: "-30px"; */
+  /* overflow-y: hidden; */
 }
 
 code {
