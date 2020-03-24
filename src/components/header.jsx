@@ -6,7 +6,14 @@ import Upload from "./upload";
 
 const Header = () => {
   return (
-    <Box bg="#1B1B1B" px={135} py={32}>
+    <Box
+      bg="#1B1B1B"
+      px={135}
+      py={32}
+      height="317px"
+      width="100%"
+      sx={{ position: "fixed", zIndex: "800" }}
+    >
       <Flex sx={{ flexFlow: "column wrap", height: "100%" }}>
         <Logo />
         <Box sx={{ width: "100%" }}>

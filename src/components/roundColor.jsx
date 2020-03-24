@@ -6,10 +6,12 @@ const RoundColor = ({ color }) => {
   return (
     <Box
       sx={{
-        borderRadius: "50%",
-        border: "1px solid #fff",
-        width: "30%",
-        height: "30%",
+        width: "40px",
+        height: "40px",
+        borderRadius: "20px",
+        border: "3px solid #fff",
+        // width: "30%",
+        // height: "30%",
         // display: "inline-block",
         // minHeight: "30%",
         background: color
