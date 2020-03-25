@@ -1,4 +1,5 @@
 // component for eva icons
+// avoid repeating eva module import and useEffect hook
 import React, { useEffect } from "react";
 import * as eva from "eva-icons";
 
