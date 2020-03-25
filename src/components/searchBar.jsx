@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box } from "rebass";
+import { Flex } from "rebass";
 import { Input } from "@rebass/forms";
 import * as eva from "eva-icons";
 
@@ -9,30 +9,29 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <Box
+    <Flex
+      alignItems="center"
+      width="50%"
+      height="3.5rem"
+      color="placeholder"
+      fontSize="1rem"
+      lineHeight="1.5rem"
+      bg="secondary"
+      px="1.5rem"
       sx={{
         border: "1px solid #000",
-        height: "55px",
-        color: "#C2C2C2",
-        display: "flex",
-        flexFlow: "row nowrap",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "50%",
-        borderRadius: "41px",
-        paddingLeft: "21px",
-        background: "#fff"
+        borderRadius: "2.5rem"
       }}
     >
-      <i data-eva="search" data-eva-height="20" data-eva-width="28" />
+      <i data-eva="search" />
       <Input
         type="search"
         placeholder="Search for a color mood"
-        style={{
+        sx={{
           border: "none"
         }}
       />
-    </Box>
+    </Flex>
   );
 };
 

@@ -151,8 +151,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Flex width="100%">
-          <Box width="100%">
+        <Flex color="primary">
+          <Box>
             <Header />
             <Workspace
               slidePanel={state.slidePanel}
