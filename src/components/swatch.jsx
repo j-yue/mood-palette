@@ -10,7 +10,7 @@ const Swatch = ({ color }) => {
     <Flex
       width="100%"
       bg={color}
-      my="8px"
+      my="16px"
       height="85px"
       maxHeight="85px"
       alignItems="center"

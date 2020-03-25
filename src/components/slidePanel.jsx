@@ -42,18 +42,18 @@ const SlidePanel = ({ src, colors }) => {
           fontSize: "36px",
           lineHeight: "49px",
           fontWeight: "600",
-          padding: "0 0 82px 0"
+          padding: "0 0 52px 0"
         }}
       >
         Mood Board name
       </Heading>
       <Flex mx={16} sx={{ flexFlow: "row wrap" }}>
-        <Box width={1 / 2} px={7.5} style={{ borderRadius: "10px" }}>
+        <Box width={1 / 2} pr={7.5}>
           <BlurredImage src={src} />
         </Box>
         <Box
           width={1 / 2}
-          px={7.5}
+          pl={7.5}
           sx={{
             borderRadius: "10px",
             background: "black",
@@ -66,13 +66,14 @@ const SlidePanel = ({ src, colors }) => {
           <RoundColor color={"#222"} />
           <RoundColor color={"#666"} />
         </Box>
-        <Box>
-          <Image src={src} sx={{ height: "100px" }} />
+        <Box my={16}>
+          <Image src={src} style={{ borderRadius: "10px" }} />
         </Box>
-
-        {colorArr.map(color => (
-          <Swatch color={color} />
-        ))}
+        <Box width="100%" sx={{ marginTop: "-16px" }}>
+          {colorArr.map(color => (
+            <Swatch color={color} />
+          ))}
+        </Box>
       </Flex>
     </Box>
   );
