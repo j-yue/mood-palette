@@ -38,6 +38,7 @@ const SlidePanel = ({ src, colors }) => {
         <i data-eva="close-outline" data-eva-fill="#000" />
       </Box>
       <Heading
+        as="h2"
         sx={{
           fontSize: "36px",
           lineHeight: "49px",

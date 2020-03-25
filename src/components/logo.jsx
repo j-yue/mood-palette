@@ -4,6 +4,7 @@ import { Heading } from "rebass";
 const Logo = () => {
   return (
     <Heading
+      as="h1"
       fontSize={[5, 6, 7]}
       color="primary"
       sx={{

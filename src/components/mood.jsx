@@ -32,6 +32,7 @@ const Mood = ({ name, images, colors }) => {
         {/* set max height to smaller size than inner container to hide scrollbar */}
         <Box maxWidth="100%" mx={135} maxHeight="297px" overflow="hidden">
           <Heading
+            as="h2"
             sx={{
               textAlign: "left",
               fontWeight: "bold",

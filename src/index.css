@@ -1,6 +1,7 @@
 html {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   scrollbar-width: none;
+  font-size: 16px;
 }
 
 html::-webkit-scrollbar {
