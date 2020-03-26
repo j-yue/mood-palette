@@ -10,7 +10,10 @@ const SlidePanel = ({ src, colors }) => {
     eva.replace();
   }, []);
 
-  const [colorArr, setColorArr] = useState(colors);
+  const [colorArr] = useState(colors);
+
+  //generate unique key
+  let count = 0;
 
   return (
     <Box
@@ -25,7 +28,8 @@ const SlidePanel = ({ src, colors }) => {
         right: "0",
         marginRight: "-25px", //hide scrollbar
         overflowY: "scroll",
-        boxShadow: "0 4px 6px 1px rgba(0,0,0,0.5)"
+        boxShadow: "0 4px 6px 1px rgba(0,0,0,0.5)",
+        display: "none"
       }}
     >
       <Box
@@ -72,7 +76,7 @@ const SlidePanel = ({ src, colors }) => {
         </Box>
         <Box width="100%" sx={{ marginTop: "-16px" }}>
           {colorArr.map(color => (
-            <Swatch color={color} />
+            <Swatch color={color} key={count++} />
           ))}
         </Box>
       </Flex>

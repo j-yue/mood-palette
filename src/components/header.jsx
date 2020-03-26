@@ -6,14 +6,12 @@ import Upload from "./upload";
 
 const Header = () => {
   return (
-    <Box bg="logo" px="8.5rem" py="2rem" height="18rem" width="100%">
-      <Flex sx={{ flexFlow: "column wrap" }}>
+    <Box variant="header">
+      <Flex sx={{ flexWrap: "wrap" }}>
         <Logo />
-        <Flex width="100%" alignItems="center">
+        <Flex variant="flexCenter">
           <SearchBar />
-          <Heading width="10%" color="secondary" fontSize="2.5rem" mx={3}>
-            OR
-          </Heading>
+          <Heading variant="or">OR</Heading>
           <Upload />
         </Flex>
       </Flex>

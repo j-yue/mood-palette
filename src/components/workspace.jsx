@@ -1,33 +1,25 @@
 import React from "react";
-import { Box } from "rebass";
+import { Box, Flex } from "rebass";
 import SlidePanel from "./slidePanel";
 import Mood from "./mood";
 
 const Workspace = ({ slidePanel, images, colors, moods }) => {
+  //generate unique key
+  let count = 0;
   return (
-    <Box
-      pt={317}
-      width="100%"
-      height="100%"
-      style={{
-        display: "flex",
-        flexFlow: "column nowrap",
-        justifyContent: "space-between",
-        alignItems: "center"
-      }}
-    >
+    <Flex>
       <SlidePanel
         src={slidePanel}
-        sx={{ position: "fixed" }}
+        sx={{ position: "fixed", display: "none" }}
         colors={["#444000", "#888123", "#555021"]}
       />
-      <Box width="100%">
+      <Box width="100%" height="18rem" pt={24}>
         <Mood name="wild west" images={images} colors={colors} />
         {moods.map(mood => (
-          <Mood name="Mood" images={mood} colors={colors} />
+          <Mood name="Mood" key={count++} images={mood} colors={colors} />
         ))}
       </Box>
-    </Box>
+    </Flex>
   );
 };
 

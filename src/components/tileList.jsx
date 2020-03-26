@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Box } from "rebass";
+import { Flex } from "rebass";
 import Tile from "./tile";
 
 const TileList = ({ images, colors }) => {
@@ -8,17 +8,12 @@ const TileList = ({ images, colors }) => {
   return (
     <Flex
       //scrollbar will be hidden in parent container
-      overflowX="scroll"
-      ml={-12}
-      pl={-12}
-      zIndex={1}
-      className="tileList"
-      justifyContent="flex-start"
+      variant="tileListWrapper"
     >
       {images.map(image => (
-        <Box minWidth="298px" px="12px">
-          <Tile src={image} key={image + count} colors={colors[count++]} />
-        </Box>
+        <Flex variant="tileList" key={image + count}>
+          <Tile src={image} colors={colors[count++]} />
+        </Flex>
       ))}
     </Flex>
   );

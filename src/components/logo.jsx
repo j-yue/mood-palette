@@ -3,17 +3,7 @@ import { Heading } from "rebass";
 
 const Logo = () => {
   return (
-    <Heading
-      as="h1"
-      color="secondary"
-      // bg="logo"
-      width="100%"
-      sx={{
-        textAlign: "left",
-        fontSize: "4.5rem",
-        lineHeight: "5rem"
-      }}
-    >
+    <Heading as="h1" variant="logo">
       Mood Colors
     </Heading>
   );
