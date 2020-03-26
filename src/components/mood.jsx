@@ -5,15 +5,15 @@ import ArrowIcon from "./arrowIcon";
 
 const Mood = ({ name, images, colors }) => {
   return (
-    <Flex variant="flexCenter">
+    <Flex className="mood" variant="flexCenter" pt="5.5rem">
       <Box variant="leftArrow">
         <ArrowIcon name="arrow-left" />
       </Box>
 
-      <Flex overflow="hidden" mb="2rem">
+      <Flex overflow="hidden">
         {/* set max height to smaller size than inner container to hide scrollbar */}
         <Box variant="mood">
-          <Heading as="h2" variant="mood">
+          <Heading as="h2" variant="moodHeader">
             {name}
           </Heading>
 

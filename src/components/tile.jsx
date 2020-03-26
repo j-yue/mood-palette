@@ -6,15 +6,15 @@ import BlurredImage from "./blurredImage";
 const Tile = ({ src, colors }) => {
   let count = 0;
   return (
-    <React.Fragment>
-      <BlurredImage src={src} />
+    <Flex variant="tile">
+      <BlurredImage src={src} variant="tileImage" />
       {/* swatches */}
-      <Flex width="100%">
+      <Flex heigh="5rem">
         {colors.map(color => (
           <Color key={color + count++} color={color} />
         ))}
       </Flex>
-    </React.Fragment>
+    </Flex>
   );
 };
 

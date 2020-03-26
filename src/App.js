@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "theme-ui";
 import { Flex, Box } from "rebass";
-import "./App.css";
+// import "./App.css";
 
 import theme from "./themes/theme";
 import theme2 from "./themes/theme2";
@@ -150,16 +150,12 @@ let state = {
 
 function App() {
   return (
-    <ThemeProvider theme={theme2}>
-      {/* <div className="App"> */}
-      <Flex
-        className="App"
-        bg="blue"
-        position="absolute"
-        top="0"
-        width="100%"
-        height="100%"
-      >
+    <Flex
+      className="App"
+      // width="100%"
+      // height="100%"
+    >
+      <ThemeProvider theme={theme2}>
         <Box>
           <Header />
           <Workspace
@@ -169,9 +165,10 @@ function App() {
             moods={state.moods}
           />
         </Box>
-      </Flex>
-      {/* </div> */}
-    </ThemeProvider>
+      </ThemeProvider>
+    </Flex>
+    // {/* </Box> */}
+    // {/* </div> */}
   );
 }
 

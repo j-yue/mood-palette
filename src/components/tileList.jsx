@@ -11,9 +11,7 @@ const TileList = ({ images, colors }) => {
       variant="tileListWrapper"
     >
       {images.map(image => (
-        <Flex variant="tileList" key={image + count}>
-          <Tile src={image} colors={colors[count++]} />
-        </Flex>
+        <Tile src={image} colors={colors[count++]} className="tile" />
       ))}
     </Flex>
   );

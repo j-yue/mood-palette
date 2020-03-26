@@ -1,18 +1,18 @@
 // wrap component in Box with blur effect event handlers
 import React, { useState } from "react";
-import { Box } from "rebass";
-import Image from "./image";
+import { Image } from "rebass";
+// import Image from "./image";
 
-const BlurredImage = ({ src }) => {
+const BlurredImage = ({ src, variant }) => {
   const [blur, setBlur] = useState(null);
   return (
-    <Box
+    <Image
       onMouseEnter={() => setBlur("6px")}
       onMouseLeave={() => setBlur(null)}
-      width="100%"
-    >
-      <Image src={src} blur={blur} variant="tileImage" />
-    </Box>
+      variant={variant}
+      src={src}
+      sx={{ filter: `blur(${blur})` }}
+    />
   );
 };
 

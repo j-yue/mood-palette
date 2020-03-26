@@ -12,7 +12,11 @@ const SearchBar = () => {
         variant="searchInput"
       />
       <Button variant="searchButton">
-        <Icon name="search" data-eva-width="1.5rem" data-eva-height="1.5rem" />
+        <Icon
+          name="search"
+          // data-eva-width="1.5rem"
+          // data-eva-height="1.5rem"
+        />
       </Button>
     </Flex>
   );
