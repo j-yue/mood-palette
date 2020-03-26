@@ -6,16 +6,14 @@ import Upload from "./upload";
 
 const Header = () => {
   return (
-    <Box variant="header">
-      <Flex sx={{ flexWrap: "wrap" }}>
-        <Logo />
-        <Flex variant="flexCenter">
-          <SearchBar />
-          <Heading variant="or">OR</Heading>
-          <Upload />
-        </Flex>
+    <Flex variant="header">
+      <Logo />
+      <Flex variant="headerActions">
+        <SearchBar />
+        <Heading variant="or">or</Heading>
+        <Upload />
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 

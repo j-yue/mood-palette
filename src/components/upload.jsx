@@ -12,9 +12,10 @@ const Upload = () => {
         accept=".png, .jpg, .jpeg"
         display="none"
       />
-      Upload photo(s)
-      <Button variant="upload">
-        <Label htmlFor="upload">Upload</Label>
+      <Button variant="uploadButton">
+        <Label htmlFor="upload" variant="uploadLabel">
+          Upload photo(s)
+        </Label>
       </Button>
     </Flex>
   );

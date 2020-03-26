@@ -1,17 +1,19 @@
 import React from "react";
-import { Flex } from "rebass";
+import { Flex, Button } from "rebass";
 import { Input } from "@rebass/forms";
 import Icon from "./icon";
 
 const SearchBar = () => {
   return (
     <Flex variant="searchBar">
-      <Icon name="search" />
       <Input
         type="search"
-        placeholder="Search for a color mood"
-        variant="searchBar"
+        placeholder="search for a color mood"
+        variant="searchInput"
       />
+      <Button variant="searchButton">
+        <Icon name="search" data-eva-width="1.5rem" data-eva-height="1.5rem" />
+      </Button>
     </Flex>
   );
 };

@@ -4,6 +4,7 @@ import { Flex, Box } from "rebass";
 import "./App.css";
 
 import theme from "./themes/theme";
+import theme2 from "./themes/theme2";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
 
@@ -149,20 +150,27 @@ let state = {
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Flex color="primary">
-          <Box>
-            <Header />
-            <Workspace
-              slidePanel={state.slidePanel}
-              images={state.images}
-              colors={state.colors}
-              moods={state.moods}
-            />
-          </Box>
-        </Flex>
-      </div>
+    <ThemeProvider theme={theme2}>
+      {/* <div className="App"> */}
+      <Flex
+        className="App"
+        bg="blue"
+        position="absolute"
+        top="0"
+        width="100%"
+        height="100%"
+      >
+        <Box>
+          <Header />
+          <Workspace
+            slidePanel={state.slidePanel}
+            images={state.images}
+            colors={state.colors}
+            moods={state.moods}
+          />
+        </Box>
+      </Flex>
+      {/* </div> */}
     </ThemeProvider>
   );
 }

@@ -1,7 +1,7 @@
 export default {
   //typography
   fonts: {
-    body: "'Open Sans', Consolas, sans-serif",
+    body: "'Open Sans', sans-serif",
     heading: "'Open Sans', sans-serif",
     monospace: "inherit"
   },
@@ -16,11 +16,12 @@ export default {
     mood: "3rem",
     logo: "5rem",
     upload: "1.75rem",
-    searchBar: "1.5rem"
+    searchBar: "1.5rem",
+    or: "2rem"
   },
   fontWeights: {
     mood: 600,
-    logo: 700,
+    logo: 800,
     body: 300
   },
   text: {
@@ -32,10 +33,10 @@ export default {
       mb: ".75rem"
     },
     logo: {
+      fontStyle: "italic",
       textAlign: "left",
-      fontSize: "logo",
-      fontWeight: "logo",
-      lineHeight: "logo",
+      fontSize: "3.75rem",
+      lineHeight: "5.25rem",
       color: "secondary",
       width: "100%"
     },
@@ -43,17 +44,20 @@ export default {
       width: "10%",
       color: "secondary",
       fontSize: "or",
+      lineHeight: "or",
       mx: "3px"
     }
   },
 
   //colors
   colors: {
+    header: "#1B1B1B",
+    headerButton: "#6FE4AD",
     text: "#000",
     background: "#fff",
     primary: "#000",
     secondary: "#FFF",
-    logo: "#1B1B1B",
+    // logo: "#1B1B1B",
     // upload: "#979797",
     upload: "#C2C2C2",
     searchBar: "#fff"
@@ -61,7 +65,7 @@ export default {
 
   //borderRadius
   radii: {
-    upload: "0px",
+    upload: "4px",
     searchBar: "2.5rem"
   },
 
@@ -81,20 +85,36 @@ export default {
   //h for height
   //w for width
   sizes: {
+    headerH: "15.5rem",
     uploadH: "9rem",
     uploadW: "40%",
     colorH: "3rem",
     blurredImageH: "10rem",
-    blurredImageW: "100%"
+    blurredImageW: "100%",
+    searchBar: "2.5rem"
   },
 
   //buttons
 
   buttons: {
     upload: {
-      bg: "upload",
+      bg: "headerButton",
+      color: "text",
+      width: "100%",
+      fontSize: "1.5rem",
+      lineHeight: "1.75rem",
       p: "1rem",
       borderRadius: "upload"
+    },
+    searchButton: {
+      bg: "headerButton",
+      height: "1.5rem",
+      borderRadius: "0 4px 4px 0"
+    },
+    searchBar: {
+      bg: "headerButton",
+      height: "inherit",
+      borderRadius: "0 4px 4px 0"
     }
   },
 
@@ -108,31 +128,35 @@ export default {
     },
     //the rest
     header: {
-      bg: "logo",
+      bg: "header",
+      height: "headerH",
       width: "100%",
       px: "bodyPaddingX",
       py: "bodyPaddingY"
     },
     upload: {
-      width: "uploadW",
+      // width: "12rem",
       height: "uploadH",
-      flexDirection: "column",
+      flexDirection: "row",
       flexWrap: "nowrap",
       alignItems: "center",
-      justifyContent: "space-evenly",
-      color: "upload",
+      // justifyContent: "flex-start",
+      // color: "text",
+      // bg: "pink",
       fontSize: "upload",
-      lineHeight: "upload",
-      borderWidth: "4px",
-      borderStyle: "dashed",
-      borderColor: "upload"
+      lineHeight: "upload"
+      // borderWidth: "4px",
+      // borderStyle: "dashed",
+      // borderColor: "upload"
     },
     searchBar: {
-      width: "50%",
-      borderRadius: "searchBar",
-      bg: "secondary",
-      pl: "1.5rem",
-      alignItems: "center"
+      height: "1.5rem"
+      // width: "50%",
+      // borderRadius: "searchBar",
+      // bg: "pink",
+      // padding: ".5rem"
+      // pl: "1.5rem",
+      // alignItems: "center"
     },
     mood: {
       mx: "bodyPaddingX",
@@ -183,11 +207,23 @@ export default {
   //variants for form elements
   forms: {
     searchBar: {
-      fontSize: "searchBar",
-      lineHeight: "searchBar",
-      border: "none",
-      px: "1.5rem",
-      height: "3.5rem"
+      borderColor: "headerButton",
+      borderWidth: "1px",
+      borderStyle: "solid",
+      borderRadius: "4px 0 0 4px",
+      fontSize: "1.5rem",
+      padding: ".5rem",
+      height: "1.5rem",
+      width: "31rem"
+
+      // height: 'inheri
+      // height: "searchBar",
+      // fontSize: "searchBar",
+      // lineHeight: "searchBar",
+      // border: "none",
+      // width: "31rem",
+      // px: "1.5rem",
+      // height: "3.5rem"
     }
   }
 };
