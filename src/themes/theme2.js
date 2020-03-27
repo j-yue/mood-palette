@@ -31,7 +31,7 @@ export default {
     },
     moodHeader: {
       fontSize: "2.5rem",
-      lineHeight: "4rem",
+      lineHeight: "3rem",
       fontWeight: "600",
       pb: ".5rem"
     }
@@ -70,10 +70,6 @@ export default {
   },
 
   variants: {
-    flexCenter: {
-      justifyContent: "center",
-      bg: "white"
-    },
     header: {
       height: "headerH",
       bg: "primary",
@@ -96,46 +92,55 @@ export default {
     upload: {
       width: "20%"
     },
+    workspace: {
+      px: "5rem",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      pt: "5.5rem",
+      pb: "calc(5.5rem - 2rem)" //match whitespace from pt
+    },
     mood: {
-      mx: "mainPaddingX",
-      mb: "scrollbarMargin",
-      overflow: "hidden"
+      height: "18.rem",
+      width: "100%",
+      mb: "2rem"
     },
-    tileListWrapper: {
-      ml: "-.75rem",
-      overflow: "auto",
+    carouselWrapper: {
+      flexDirection: "row",
+      flexWrap: "nowrap",
       alignItems: "center"
+      // border: "3px dashed pink"
     },
-    tileList: {
-      flexDirection: "column",
-      minWidth: "30%",
-      px: ".75rem"
+    carousel: {
+      minWidth: "100%",
+      px: "3.5rem",
+      mr: "-5%", //override margin from last image
+      justifyContent: "flex-start"
     },
     tile: {
       height: "15rem",
       minWidth: "30%",
+      maxWidth: "30%",
       flexWrap: "nowrap",
       flexDirection: "column",
-      mx: ".75rem"
+      mr: "5%" //collapsing margins
     },
     tileImage: {
       objectFit: "cover",
       borderRadius: "1.5rem 1.5rem 0 0",
-      height: "10rem"
+      minHeight: "75%",
+      maxHeight: "75%"
+    },
+    swatches: {
+      minHeight: "25%",
+      maxHeight: "25%",
+      zIndex: "2" //cover blur from blurredImage
     },
     color: {
-      height: "5rem",
       flex: "1 1 auto"
     },
-    leftArrow: {
+    arrowIcon: {
       position: "relative",
-      left: "5rem",
-      top: "9rem"
-    },
-    rightArrow: {
-      position: "relative",
-      left: "-6.5rem",
-      top: "9rem"
+      maxWidth: "0"
     }
   },
 

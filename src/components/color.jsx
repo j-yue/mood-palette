@@ -2,11 +2,7 @@ import React from "react";
 import { Box } from "rebass";
 
 const Color = ({ color }) => {
-  return (
-    <Box variant="color" bg={color} color={color}>
-      hi
-    </Box>
-  );
+  return <Box variant="color" bg={color}></Box>;
 };
 
 export default Color;

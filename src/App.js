@@ -41,50 +41,11 @@ let state = {
       "images/feathers.jpg",
       "images/feathers.jpg",
       "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
       "images/feathers.jpg"
     ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
+    ["images/feathers.jpg", "images/feathers.jpg", "images/feathers.jpg"],
+    ["images/feathers.jpg", "images/feathers.jpg"],
+    ["images/feathers.jpg"],
     [
       "images/feathers.jpg",
       "images/feathers.jpg",
@@ -150,11 +111,7 @@ let state = {
 
 function App() {
   return (
-    <Flex
-      className="App"
-      // width="100%"
-      // height="100%"
-    >
+    <Flex className="App">
       <ThemeProvider theme={theme2}>
         <Box>
           <Header />
@@ -167,8 +124,6 @@ function App() {
         </Box>
       </ThemeProvider>
     </Flex>
-    // {/* </Box> */}
-    // {/* </div> */}
   );
 }
 

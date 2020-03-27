@@ -1,30 +1,16 @@
 import React from "react";
-import { Flex, Heading, Box } from "rebass";
-import TileList from "./tileList";
-import ArrowIcon from "./arrowIcon";
+import { Heading, Box } from "rebass";
+import Carousel from "./carousel";
 
 const Mood = ({ name, images, colors }) => {
   return (
-    <Flex className="mood" variant="flexCenter" pt="5.5rem">
-      <Box variant="leftArrow">
-        <ArrowIcon name="arrow-left" />
-      </Box>
+    <Box variant="mood">
+      <Heading as="h2" variant="moodHeader" pl="3.5rem">
+        {name}
+      </Heading>
 
-      <Flex overflow="hidden">
-        {/* set max height to smaller size than inner container to hide scrollbar */}
-        <Box variant="mood">
-          <Heading as="h2" variant="moodHeader">
-            {name}
-          </Heading>
-
-          <TileList images={images} colors={colors} />
-        </Box>
-      </Flex>
-
-      <Box variant="rightArrow">
-        <ArrowIcon name="arrow-right" />
-      </Box>
-    </Flex>
+      <Carousel images={images} colors={colors} />
+    </Box>
   );
 };
 

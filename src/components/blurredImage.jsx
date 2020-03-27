@@ -1,7 +1,5 @@
-// wrap component in Box with blur effect event handlers
 import React, { useState } from "react";
 import { Image } from "rebass";
-// import Image from "./image";
 
 const BlurredImage = ({ src, variant }) => {
   const [blur, setBlur] = useState(null);
@@ -11,7 +9,9 @@ const BlurredImage = ({ src, variant }) => {
       onMouseLeave={() => setBlur(null)}
       variant={variant}
       src={src}
-      sx={{ filter: `blur(${blur})` }}
+      sx={{
+        filter: `blur(${blur})`
+      }}
     />
   );
 };

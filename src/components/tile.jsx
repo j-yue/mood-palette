@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "rebass";
+import { Flex, Box } from "rebass";
 import Color from "./color";
 import BlurredImage from "./blurredImage";
 
@@ -9,7 +9,7 @@ const Tile = ({ src, colors }) => {
     <Flex variant="tile">
       <BlurredImage src={src} variant="tileImage" />
       {/* swatches */}
-      <Flex heigh="5rem">
+      <Flex variant="swatches">
         {colors.map(color => (
           <Color key={color + count++} color={color} />
         ))}

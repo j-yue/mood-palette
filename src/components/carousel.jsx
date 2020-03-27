@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box } from "rebass";
+import { Box, Flex } from "rebass";
 import Tile from "./tile";
 import ArrowIcon from "./arrowIcon";
 
@@ -25,7 +25,7 @@ const Carousel = ({ images }) => {
   const [current, setCurrent] = useState(0);
 
   //current row
-  const [row, setRow] = useState(images.slice(2));
+  const [row, setRow] = useState(images.slice(0, 3));
 
   //first image of next row
   const [preview, setPreview] = useState(images[current + 3]);
@@ -39,15 +39,24 @@ const Carousel = ({ images }) => {
   let count = 0;
 
   return (
-    <Box>
-      <ArrowIcon name="arrow-left" />
+    <Flex variant="carouselWrapper">
+      <Box variant="arrowIcon">
+        <ArrowIcon name="arrow-left" />
+      </Box>
+      <Flex variant="carousel">
+        {row.map(src => (
+          <Tile
+            src={src}
+            colors={["#123456", "#aff", "#444000"]}
+            key={count++}
+          />
+        ))}
+      </Flex>
 
-      {row.map(src => (
-        <Tile src={src} colors={["#123456", "#aff", "#444000"]} key={count++} />
-      ))}
-
-      <ArrowIcon name="arrow-right" />
-    </Box>
+      <Box variant="arrowIcon">
+        <ArrowIcon name="arrow-right" />
+      </Box>
+    </Flex>
   );
 };
 
