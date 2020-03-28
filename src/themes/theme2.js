@@ -37,6 +37,10 @@ export default {
     }
   },
 
+  radii: {
+    slidePanelRadius: "10px"
+  },
+
   sizes: {
     headerH: "15.5rem",
     headerButtonsH: "2.75rem"
@@ -141,6 +145,59 @@ export default {
     arrowIcon: {
       position: "relative",
       maxWidth: "0"
+    },
+    slidePanel: {
+      zIndex: "100",
+      bg: "inherit",
+      p: "1rem",
+      position: "fixed",
+      top: "0",
+      right: "0",
+      width: "35%",
+      height: "100vh",
+      flexDirection: "column",
+      flexWrap: "nowrap",
+      overflowY: "scroll",
+      boxShadow: "0 4px 6px 1px rgba(0,0,0,0.5)"
+    },
+    slidePanelImageWrapper: {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      width: "100%",
+      height: "100%",
+      justifyContent: "space-between"
+    },
+    closeIcon: {
+      opacity: ".54",
+      position: "absolute",
+      width: "fit-content",
+      alignSelf: "flex-end"
+    },
+    slidePanelBlurredImage: {
+      borderRadius: "slidePanelRadius",
+      width: "calc(50% - 1rem)",
+      height: "10rem",
+      mr: "1rem"
+    },
+    colorComparison: {
+      height: "10rem",
+      borderRadius: "slidePanelRadius",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      width: "calc(50% - 1rem)",
+      ml: "1rem"
+    },
+    slidePanelImage: {
+      borderRadius: "slidePanelRadius",
+      width: "100%",
+      height: "20rem",
+      mt: "1rem"
+    },
+    roundColor: {
+      width: "2.5rem",
+      height: "2.5rem",
+      borderRadius: "1.25rem",
+      border: "3px solid #fff"
     }
   },
 

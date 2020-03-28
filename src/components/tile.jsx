@@ -7,7 +7,7 @@ const Tile = ({ src, colors }) => {
   let count = 0;
   return (
     <Flex variant="tile">
-      <BlurredImage src={src} variant="tileImage" />
+      <BlurredImage src={src} variant="tileImage" initialBlur="0" />
       {/* swatches */}
       <Flex variant="swatches">
         {colors.map(color => (
