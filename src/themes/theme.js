@@ -1,229 +1,218 @@
 export default {
-  //typography
+  colors: {
+    primary: "#1B1B1B", //blackish gray
+    secondary: "#6FE4AD", //light green
+    active: "#D9FDE4",
+    black: "#000",
+    white: "#fff"
+  },
   fonts: {
     body: "'Open Sans', sans-serif",
-    heading: "'Open Sans', sans-serif",
-    monospace: "inherit"
+    heading: "inherit"
   },
-  fontSizes: {
-    mood: "2.25rem",
-    logo: "4.5rem",
-    or: "2.5rem",
-    upload: "1.5rem",
-    searchBar: "1rem"
-  },
-  lineHeights: {
-    mood: "3rem",
-    logo: "5rem",
-    upload: "1.75rem",
-    searchBar: "1.5rem",
-    or: "2rem"
-  },
-  fontWeights: {
-    mood: 600,
-    logo: 800,
-    body: 300
-  },
+
   text: {
-    mood: {
-      textAlign: "left",
-      fontWeight: "mood",
-      fontSize: "mood",
-      lineHeight: "mood",
-      mb: ".75rem"
-    },
     logo: {
+      color: "white",
+      width: "100%",
       fontStyle: "italic",
-      textAlign: "left",
-      fontSize: "3.75rem",
-      lineHeight: "5.25rem",
-      color: "secondary",
-      width: "100%"
+      fontWeight: "800",
+      fontSize: "4rem",
+      lineHeight: "5.5rem",
+      textAlign: "left"
     },
     or: {
       width: "10%",
-      color: "secondary",
-      fontSize: "or",
-      lineHeight: "or",
-      mx: "3px"
+      color: "white",
+      fontSize: "1.5rem",
+      lineHeight: "2rem",
+      fontWeight: "400",
+      textAlign: "center"
+    },
+    moodHeader: {
+      fontSize: "2.5rem",
+      lineHeight: "3rem",
+      fontWeight: "600",
+      pb: ".5rem"
     }
   },
 
-  //colors
-  colors: {
-    header: "#1B1B1B",
-    headerButton: "#6FE4AD",
-    text: "#000",
-    background: "#fff",
-    primary: "#000",
-    secondary: "#FFF",
-    // logo: "#1B1B1B",
-    // upload: "#979797",
-    upload: "#C2C2C2",
-    searchBar: "#fff"
-  },
-
-  //borderRadius
   radii: {
-    upload: "4px",
-    searchBar: "2.5rem"
+    slidePanelRadius: "10px"
   },
 
-  //spacing
-  //y -> top and bottom
-  // x -> left and right
-  space: {
-    bodyPaddingX: "8.5rem",
-    bodyPaddingY: "2rem",
-    scrollbarPadding: "50px",
-    scrollbarMargin: "-50px",
-    arrowLeft: "5rem",
-    arrowRight: "8.5rem"
-  },
-
-  //layout
-  //h for height
-  //w for width
   sizes: {
     headerH: "15.5rem",
-    uploadH: "9rem",
-    uploadW: "40%",
-    colorH: "3rem",
-    blurredImageH: "10rem",
-    blurredImageW: "100%",
-    searchBar: "2.5rem"
+    headerButtonsH: "2.75rem"
   },
 
-  //buttons
+  space: {
+    mainPaddingX: "8.5rem",
+    mainPaddingY: "2rem",
+    scrollbarPadding: "50px",
+    scrollbarMargin: "-50px"
+  },
 
   buttons: {
-    upload: {
-      bg: "headerButton",
-      color: "text",
-      width: "100%",
-      fontSize: "1.5rem",
-      lineHeight: "1.75rem",
-      p: "1rem",
-      borderRadius: "upload"
-    },
     searchButton: {
-      bg: "headerButton",
-      height: "1.5rem",
-      borderRadius: "0 4px 4px 0"
+      borderRadius: "0 4px 4px 0",
+      bg: "secondary",
+      borderColor: "secondary",
+      width: "10%",
+      maxWidth: "3rem",
+      display: "flex",
+      flexFlor: "row nowrap",
+      alignItems: "center",
+      justifyContent: "center"
     },
-    searchBar: {
-      bg: "headerButton",
-      height: "inherit",
-      borderRadius: "0 4px 4px 0"
+    uploadButton: {
+      bg: "secondary",
+      color: "black",
+      borderRadius: "4px",
+      width: "100%"
     }
   },
 
-  //variants
   variants: {
-    //flex variants
-    flexCenter: {
-      alignItems: "center",
-      justifyContent: "center",
-      width: "100%"
-    },
-    //the rest
     header: {
-      bg: "header",
       height: "headerH",
-      width: "100%",
-      px: "bodyPaddingX",
-      py: "bodyPaddingY"
+      bg: "primary",
+      px: "mainPaddingX",
+      pt: "mainPaddingY",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      fontSize: "1rem",
+      lineHeight: "1.5rem"
     },
-    upload: {
-      // width: "12rem",
-      height: "uploadH",
-      flexDirection: "row",
-      flexWrap: "nowrap",
-      alignItems: "center",
-      // justifyContent: "flex-start",
-      // color: "text",
-      // bg: "pink",
-      fontSize: "upload",
-      lineHeight: "upload"
-      // borderWidth: "4px",
-      // borderStyle: "dashed",
-      // borderColor: "upload"
+    headerActions: {
+      height: "100%",
+      justifyContent: "flex-start",
+      alignItems: "center"
     },
     searchBar: {
-      height: "1.5rem"
-      // width: "50%",
-      // borderRadius: "searchBar",
-      // bg: "pink",
-      // padding: ".5rem"
-      // pl: "1.5rem",
-      // alignItems: "center"
+      width: "40%",
+      height: "headerButtonsH"
     },
-    mood: {
-      mx: "bodyPaddingX",
-      mb: "scrollbarMargin",
-      overflow: "hidden"
+    upload: {
+      width: "20%"
     },
-    tileListWrapper: {
-      ml: "-.75rem",
-      pl: "-.75rem",
-      pb: "scrollbarPadding",
-      overflowX: "scroll"
-    },
-    tileList: {
+    workspace: {
+      px: "5rem",
       flexDirection: "row",
       flexWrap: "wrap",
+      pt: "5.5rem",
+      pb: "calc(5.5rem - 2rem)" //match whitespace from pt
+    },
+    mood: {
+      height: "18.rem",
+      width: "100%",
+      mb: "2rem"
+    },
+    carouselWrapper: {
+      flexDirection: "row",
+      flexWrap: "nowrap",
+      alignItems: "center"
+      // border: "3px dashed pink"
+    },
+    carousel: {
+      minWidth: "100%",
+      px: "3.5rem",
+      mr: "-5%", //override margin from last image
+      justifyContent: "flex-start"
+    },
+    tile: {
+      height: "15rem",
       minWidth: "30%",
-      px: ".75rem"
+      maxWidth: "30%",
+      flexWrap: "nowrap",
+      flexDirection: "column",
+      mr: "5%" //collapsing margins
     },
     tileImage: {
       objectFit: "cover",
-      borderTopRightRadius: "1.5rem",
-      borderTopLeftRadius: "1.5rem",
-      height: "blurredImageH",
-      width: "blurredImageW"
+      borderRadius: "1.5rem 1.5rem 0 0",
+      minHeight: "75%",
+      maxHeight: "75%"
+    },
+    swatches: {
+      minHeight: "25%",
+      maxHeight: "25%",
+      zIndex: "2" //cover blur from blurredImage
     },
     color: {
-      height: "colorH",
       flex: "1 1 auto"
+    },
+    arrowIcon: {
+      position: "relative",
+      maxWidth: "0"
+    },
+    slidePanel: {
+      zIndex: "100",
+      bg: "inherit",
+      p: "1rem",
+      position: "fixed",
+      top: "0",
+      right: "-20px", //hide scrollbar
+      width: "35%",
+      height: "100vh",
+      flexDirection: "column",
+      flexWrap: "nowrap",
+      overflowY: "scroll",
+      boxShadow: "0 4px 6px 1px rgba(0,0,0,0.5)"
+    },
+    slidePanelImageWrapper: {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      width: "100%",
+      height: "100%",
+      justifyContent: "space-between"
+    },
+    closeIcon: {
+      opacity: ".54",
+      position: "absolute",
+      width: "fit-content",
+      alignSelf: "flex-end"
+    },
+    slidePanelBlurredImage: {
+      borderRadius: "slidePanelRadius",
+      width: "calc(50% - 1rem)",
+      height: "10rem",
+      mr: "1rem"
+    },
+    colorComparison: {
+      height: "10rem",
+      borderRadius: "slidePanelRadius",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      width: "calc(50% - 1rem)",
+      ml: "1rem"
+    },
+    slidePanelImage: {
+      borderRadius: "slidePanelRadius",
+      width: "100%",
+      height: "20rem",
+      mt: "1rem"
     },
     roundColor: {
       width: "2.5rem",
       height: "2.5rem",
       borderRadius: "1.25rem",
       border: "3px solid #fff"
-    },
-    leftArrow: {
-      position: "relative",
-      left: "arrowLeft",
-      maxWidth: "0"
-    },
-    rightArrow: {
-      position: "relative",
-      right: "arrowRight",
-      maxWidth: "0"
     }
   },
 
-  //variants for form elements
   forms: {
-    searchBar: {
-      borderColor: "headerButton",
-      borderWidth: "1px",
-      borderStyle: "solid",
+    searchInput: {
       borderRadius: "4px 0 0 4px",
-      fontSize: "1.5rem",
-      padding: ".5rem",
-      height: "1.5rem",
-      width: "31rem"
+      borderColor: "secondary",
+      color: "white",
+      pl: ".5rem"
+    },
 
-      // height: 'inheri
-      // height: "searchBar",
-      // fontSize: "searchBar",
-      // lineHeight: "searchBar",
-      // border: "none",
-      // width: "31rem",
-      // px: "1.5rem",
-      // height: "3.5rem"
+    uploadLabel: {
+      justifyContent: "center",
+      alignItems: "center",
+      height: "headerButtonsH"
     }
   }
 };

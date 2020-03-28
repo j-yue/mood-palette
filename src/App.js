@@ -4,7 +4,6 @@ import { Flex, Box } from "rebass";
 // import "./App.css";
 
 import theme from "./themes/theme";
-import theme2 from "./themes/theme2";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
 import SlidePanel from "./components/slidePanel";
@@ -113,7 +112,7 @@ let state = {
 function App() {
   return (
     <Flex className="App">
-      <ThemeProvider theme={theme2}>
+      <ThemeProvider theme={theme}>
         <Box bg="white">
           {/* <SlidePanel
             src={state.slidePanel}
