@@ -35,8 +35,10 @@ const calculateHex = num => {
   return `${decToHex(wholeNuum)}${decToHex(remainder)}`;
 };
 
-export const toHex = rgb => {
+const toHex = rgb => {
   let result = "#";
   [...rgb].map(num => (result += calculateHex(num)));
   return result;
 };
+
+export default toHex;

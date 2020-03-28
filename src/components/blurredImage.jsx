@@ -1,14 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Image } from "rebass";
 
-const BlurredImage = ({
-  src,
-  variant,
-  initialBlur,
-  ...handlers
-  // handleLoad,
-  // setPalette
-}) => {
+const BlurredImage = ({ src, variant, initialBlur, ...handlers }) => {
   const [blur, setBlur] = useState(initialBlur);
   const mouseLeaveBlur = initialBlur ? initialBlur : "0";
   const { handleLoad, setPalette } = handlers;

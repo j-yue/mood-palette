@@ -3,7 +3,7 @@ import { Flex, Box } from "rebass";
 import ColorThief from "colorthief";
 import Color from "./color";
 import BlurredImage from "./blurredImage";
-import { toHex } from "./utils/toHex";
+import toHex from "./utils/toHex";
 
 const handleLoad = img => {
   const colorThief = new ColorThief();
