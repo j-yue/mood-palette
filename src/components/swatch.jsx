@@ -3,10 +3,16 @@ import React from "react";
 import { Flex } from "rebass";
 import Icon from "./icon";
 
+const copyToClipboard = color => {
+  const copyText = document.createElement("textarea");
+  document.body.appendChild(copyText);
+  copyText.value = color;
+  copyText.select();
+  document.execCommand("copy");
+  document.body.removeChild(copyText);
+};
+
 const Swatch = ({ color }) => {
-  // useEffect(() => {
-  //   eva.replace();
-  // }, []);
   return (
     <Flex
       width="100%"
@@ -20,6 +26,7 @@ const Swatch = ({ color }) => {
       lineHeight="33px"
       color="#fff"
       sx={{ borderRadius: "10px", textTransform: "uppercase" }}
+      onClick={() => copyToClipboard(color)}
     >
       <Icon
         name="clipboard-outline"

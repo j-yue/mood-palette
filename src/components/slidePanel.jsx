@@ -30,11 +30,11 @@ const SlidePanel = ({ src, name, colors }) => {
 
       {/* images */}
       <Flex variant="slidePanelImageWrapper">
-        <BlurredImage
+        {/* <BlurredImage
           src={src}
           variant="slidePanelBlurredImage"
           initialBlur="6px"
-        />
+        /> */}
         <ColorComparison colors={colors} />
         <Image src={src} variant="slidePanelImage" />
 
