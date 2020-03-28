@@ -6,29 +6,14 @@ import Upload from "./upload";
 
 const Header = () => {
   return (
-    <Box
-      bg="#1B1B1B"
-      px={135}
-      py={32}
-      height="317px"
-      width="100%"
-      sx={{ position: "fixed", zIndex: "800" }}
-    >
-      <Flex sx={{ flexFlow: "column wrap", height: "100%" }}>
-        <Logo />
-        <Box sx={{ width: "100%" }}>
-          <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
-            <SearchBar />
-            <Heading
-              sx={{ width: "10%", textTransform: "uppercase", color: "white" }}
-            >
-              or
-            </Heading>
-            <Upload />
-          </Flex>
-        </Box>
+    <Flex variant="header">
+      <Logo />
+      <Flex variant="headerActions">
+        <SearchBar />
+        <Heading variant="or">or</Heading>
+        <Upload />
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 

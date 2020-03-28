@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image } from "rebass";
 
-const BlurredImage = ({ src }) => {
+const BlurredImage = ({ src, variant, initialBlur }) => {
+  const [blur, setBlur] = useState(initialBlur);
+  const mouseLeaveBlur = initialBlur ? initialBlur : "0";
   return (
-    <Image className="blurImage" src={src} style={{ borderRadius: "10px" }} />
+    <Image
+      onMouseEnter={() => setBlur("6px")}
+      onMouseLeave={() => setBlur(mouseLeaveBlur)}
+      variant={variant}
+      src={src}
+      sx={{
+        filter: `blur(${blur})`
+      }}
+    />
   );
 };
 

@@ -1,11 +1,12 @@
 import React from "react";
 import { ThemeProvider } from "theme-ui";
 import { Flex, Box } from "rebass";
-import "./App.css";
+// import "./App.css";
 
 import theme from "./themes/theme";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
+import SlidePanel from "./components/slidePanel";
 
 let state = {
   slidePanel: "images/feathers.jpg",
@@ -40,50 +41,11 @@ let state = {
       "images/feathers.jpg",
       "images/feathers.jpg",
       "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
       "images/feathers.jpg"
     ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
+    ["images/feathers.jpg", "images/feathers.jpg", "images/feathers.jpg"],
+    ["images/feathers.jpg", "images/feathers.jpg"],
+    ["images/feathers.jpg"],
     [
       "images/feathers.jpg",
       "images/feathers.jpg",
@@ -149,21 +111,24 @@ let state = {
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Flex width="100%">
-          <Box width="100%">
-            <Header />
-            <Workspace
-              slidePanel={state.slidePanel}
-              images={state.images}
-              colors={state.colors}
-              moods={state.moods}
-            />
-          </Box>
-        </Flex>
-      </div>
-    </ThemeProvider>
+    <Flex className="App">
+      <ThemeProvider theme={theme}>
+        <Box bg="white">
+          {/* <SlidePanel
+            src={state.slidePanel}
+            name="Mood Board"
+            colors={["#444000", "#888123", "#555021"]}
+          /> */}
+          <Header />
+          <Workspace
+            slidePanel={state.slidePanel}
+            images={state.images}
+            colors={state.colors}
+            moods={state.moods}
+          />
+        </Box>
+      </ThemeProvider>
+    </Flex>
   );
 }
 

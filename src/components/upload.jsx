@@ -1,35 +1,23 @@
 import React from "react";
 import { Label, Input } from "@rebass/forms";
-import { Box, Button } from "rebass";
+import { Flex, Button } from "rebass";
 
 const Upload = () => {
   return (
-    <Box
-      sx={{
-        border: "4px dashed #979797",
-        padding: "1rem",
-        display: "flex",
-        flexFlow: "column nowrap",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "40%",
-        height: "164px",
-        color: "#fff",
-        fonSize: "21px"
-      }}
-    >
+    <Flex variant="upload">
       <Input
         id="upload"
         type="file"
         multiple
         accept=".png, .jpg, .jpeg"
-        sx={{ display: "none" }}
+        display="none"
       />
-      upload photo(s)
-      <Button sx={{ background: "#979797" }}>
-        <Label htmlFor="upload">Upload</Label>
+      <Button variant="uploadButton">
+        <Label htmlFor="upload" variant="uploadLabel">
+          Upload photo(s)
+        </Label>
       </Button>
-    </Box>
+    </Flex>
   );
 };
 

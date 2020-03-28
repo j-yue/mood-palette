@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import * as Rebass from "rebass";
 
-const Image = ({ src }) => {
-  const [className, setClassName] = useState(null);
-
+//component will be used in tile and sidepanel multiple times
+const Image = ({ src, blur, variant }) => {
   return (
     <Rebass.Image
-      className={className}
+      variant={variant}
       src={src}
-      onMouseEnter={() => setClassName("blurImage")}
-      onMouseLeave={() => setClassName(null)}
-      height="190px"
-      style={{
-        borderTopRightRadius: "22px",
-        borderTopLeftRadius: "22px"
-      }}
+      height="10rem"
+      width="100%"
+      sx={{ filter: `blur(${blur})` }}
     />
   );
 };

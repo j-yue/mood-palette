@@ -1,25 +1,20 @@
 import React from "react";
-import { Box, Flex } from "rebass";
+import { Flex, Box } from "rebass";
 import Color from "./color";
-import Image from "./image";
+import BlurredImage from "./blurredImage";
 
 const Tile = ({ src, colors }) => {
   let count = 0;
   return (
-    <Box>
-      <Flex flexDirection="row" flexWrap="wrap">
-        <Image src={src} />
-        <Flex width="100%">
-          {colors.map(color => (
-            <Color
-              key={color + count++}
-              color={color}
-              style={{ minWidth: "30%" }}
-            />
-          ))}
-        </Flex>
+    <Flex variant="tile">
+      <BlurredImage src={src} variant="tileImage" initialBlur="0" />
+      {/* swatches */}
+      <Flex variant="swatches">
+        {colors.map(color => (
+          <Color key={color + count++} color={color} />
+        ))}
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 

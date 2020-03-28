@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import * as eva from "eva-icons";
-import { Flex, Box } from "rebass";
+import React from "react";
+// import * as eva from "eva-icons";
+import { Flex } from "rebass";
+import Icon from "./icon";
 
 const Swatch = ({ color }) => {
-  useEffect(() => {
-    eva.replace();
-  }, []);
+  // useEffect(() => {
+  //   eva.replace();
+  // }, []);
   return (
     <Flex
       width="100%"
@@ -20,12 +21,12 @@ const Swatch = ({ color }) => {
       color="#fff"
       sx={{ borderRadius: "10px", textTransform: "uppercase" }}
     >
-      <i
-        data-eva="clipboard-outline"
+      <Icon
+        name="clipboard-outline"
         data-eva-fill="#fff"
-        data-eva-width="24px"
-        data-eva-height="24px"
-        style={{ marginRight: "27px" }}
+        data-eva-width="1.5rem"
+        data-eva-height="1.5rem"
+        style={{ marginRight: "1rem" }}
       />
       {color}
     </Flex>

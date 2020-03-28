@@ -1,38 +1,24 @@
-import React, { useEffect } from "react";
-import { Box } from "rebass";
+import React from "react";
+import { Flex, Button } from "rebass";
 import { Input } from "@rebass/forms";
-import * as eva from "eva-icons";
+import Icon from "./icon";
 
 const SearchBar = () => {
-  useEffect(() => {
-    eva.replace();
-  }, []);
-
   return (
-    <Box
-      sx={{
-        border: "1px solid #000",
-        height: "55px",
-        color: "#C2C2C2",
-        display: "flex",
-        flexFlow: "row nowrap",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "50%",
-        borderRadius: "41px",
-        paddingLeft: "21px",
-        background: "#fff"
-      }}
-    >
-      <i data-eva="search" data-eva-height="20" data-eva-width="28" />
+    <Flex variant="searchBar">
       <Input
         type="search"
-        placeholder="Search for a color mood"
-        style={{
-          border: "none"
-        }}
+        placeholder="search for a color mood"
+        variant="searchInput"
       />
-    </Box>
+      <Button variant="searchButton">
+        <Icon
+          name="search"
+          // data-eva-width="1.5rem"
+          // data-eva-height="1.5rem"
+        />
+      </Button>
+    </Flex>
   );
 };
 
