@@ -152,7 +152,7 @@ export default {
       p: "1rem",
       position: "fixed",
       top: "0",
-      right: "0",
+      right: "-20px", //hide scrollbar
       width: "35%",
       height: "100vh",
       flexDirection: "column",

@@ -115,11 +115,11 @@ function App() {
     <Flex className="App">
       <ThemeProvider theme={theme2}>
         <Box bg="white">
-          <SlidePanel
+          {/* <SlidePanel
             src={state.slidePanel}
             name="Mood Board"
             colors={["#444000", "#888123", "#555021"]}
-          />
+          /> */}
           <Header />
           <Workspace
             slidePanel={state.slidePanel}

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-// import * as eva from "eva-icons";
 import { Box, Image, Flex, Heading } from "rebass";
 import BlurredImage from "./blurredImage";
-// import RoundColor from "./roundColor";
 import Swatch from "./swatch";
 import ColorComparison from "./colorComparison";
 import Icon from "./icon";

@@ -1,8 +1,15 @@
 html {
-  /* -ms-overflow-style: -ms-autohiding-scrollbar;
-  scrollbar-width: none; */
   font-size: 16px;
-  /* overflow-x: hidden; */
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0px;
+  display: none;
+  background: transparent;
 }
 
 html,
