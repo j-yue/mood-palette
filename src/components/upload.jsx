@@ -3,14 +3,20 @@ import { Label, Input } from "@rebass/forms";
 import { Flex, Button } from "rebass";
 import { GlobalContext } from "../context/globalContext";
 
+//check if the uploaded img is has jpg, jpeg, or png extension
+const hasValidExtension = img => {
+  const extension = img.split(".")[1];
+  if (extension === "jpg" || extension === "jpeg" || extension === "png")
+    return true;
+  return false;
+};
+
 const handleChange = (files, uploadedImages, setUploadedImages) => {
-  const images = Object.values(files).map(file => URL.createObjectURL(file));
-  // console.log(uploadedImages);
-  // if (!uploadedImages) result = [...uploadedImages, ...result];
-  // console.log(uploadedImages);
-  // setUploadedImages([...uploadedImages, ...result]);
-  // console.log(uploadedImages == true);
-  // setUploadedImages(result);
+  let images = [];
+  for (let file of files) {
+    if (!hasValidExtension(file.name)) break;
+    images.push(URL.createObjectURL(file));
+  }
   const result = uploadedImages ? [...images, ...uploadedImages] : [...images];
   setUploadedImages(result);
 };

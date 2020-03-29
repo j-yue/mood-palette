@@ -135,13 +135,7 @@ const App = () => {
               <SlidePanel data={slidePanel} setSlidePanel={setSlidePanel} />
             )}
             <Header />
-            <Workspace
-              // slidePanel={state.slidePanel}
-              // images={state.images}
-              // colors={state.colors}
-              moods={state.moods}
-              uploadedImages={uploadedImages}
-            />
+            <Workspace moods={state.moods} uploadedImages={uploadedImages} />
           </Box>
         </GlobalProvider>
       </ThemeProvider>

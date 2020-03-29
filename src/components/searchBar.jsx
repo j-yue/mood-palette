@@ -11,7 +11,7 @@ const SearchBar = () => {
         placeholder="search for a color mood"
         variant="searchInput"
       />
-      <Button variant="searchButton">
+      <Button variant="searchButton" minWidth="3rem">
         <Icon
           name="search"
           // data-eva-width="1.5rem"
