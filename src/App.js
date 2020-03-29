@@ -1,19 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { ThemeProvider } from "theme-ui";
 import { Flex, Box } from "rebass";
-// import "./App.css";
+
+import { GlobalProvider } from "./context/globalContext";
 
 import theme from "./themes/theme";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
 import SlidePanel from "./components/slidePanel";
-
-const initialState = {
-  sidePanel: null,
-  uploadedImages: {},
-  moods: {},
-  searches: []
-};
 
 let state = {
   slidePanel: "images/feathers.jpg",
@@ -116,27 +110,42 @@ let state = {
   ]
 };
 
-function App() {
+const App = () => {
+  const [slidePanel, setSlidePanel] = useState(null);
+  const [uploadedImages, setUploadedImages] = useState([]);
+  const [moods, setMoods] = useState({});
+  const [searchHistory, setSearchHistory] = useState([]);
   return (
     <Flex className="App">
       <ThemeProvider theme={theme}>
-        <Box bg="white">
-          <SlidePanel
-            src={state.slidePanel}
-            name="Mood Board"
-            colors={["#444000", "#888123", "#555021"]}
-          />
-          <Header />
-          <Workspace
-            slidePanel={state.slidePanel}
-            images={state.images}
-            colors={state.colors}
-            moods={state.moods}
-          />
-        </Box>
+        <GlobalProvider
+          value={{
+            slidePanel,
+            setSlidePanel,
+            uploadedImages,
+            setUploadedImages,
+            moods,
+            setMoods,
+            searchHistory,
+            setSearchHistory
+          }}
+        >
+          <Box bg="white">
+            {slidePanel && (
+              <SlidePanel data={slidePanel} setSlidePanel={setSlidePanel} />
+            )}
+            <Header />
+            <Workspace
+              slidePanel={state.slidePanel}
+              images={state.images}
+              colors={state.colors}
+              moods={state.moods}
+            />
+          </Box>
+        </GlobalProvider>
       </ThemeProvider>
     </Flex>
   );
-}
+};
 
 export default App;

@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Box, Image, Flex, Heading } from "rebass";
-import BlurredImage from "./blurredImage";
 import Swatch from "./swatch";
 import ColorComparison from "./colorComparison";
 import Icon from "./icon";
 
-const SlidePanel = ({ src, name, colors }) => {
-  const [colorArr] = useState(colors);
+const SlidePanel = ({ data, setSlidePanel }) => {
+  const { src, palette, name } = data;
 
   //generate unique key
   let count = 0;
 
   return (
-    <Flex variant="slidePanel">
-      <Box variant="closeIcon">
+    <Flex variant="slidePanel" bg="white">
+      <Box variant="closeIcon" onClick={() => setSlidePanel(null)}>
         <Icon name="close-outline" />
       </Box>
 
@@ -30,17 +29,13 @@ const SlidePanel = ({ src, name, colors }) => {
 
       {/* images */}
       <Flex variant="slidePanelImageWrapper">
-        {/* <BlurredImage
-          src={src}
-          variant="slidePanelBlurredImage"
-          initialBlur="6px"
-        /> */}
-        <ColorComparison colors={colors} />
+        <Image src={src} variant="slidePanelBlurredImage" />
+        <ColorComparison colors={palette} />
         <Image src={src} variant="slidePanelImage" />
 
         {/* swatches */}
         <Box width="100%">
-          {colorArr.map(color => (
+          {palette.map(color => (
             <Swatch color={color} key={count++} />
           ))}
         </Box>

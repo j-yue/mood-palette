@@ -9,7 +9,7 @@ const Mood = ({ name, images, colors }) => {
         {name}
       </Heading>
 
-      <Carousel images={images} colors={colors} />
+      <Carousel images={images} colors={colors} name={name} />
     </Box>
   );
 };

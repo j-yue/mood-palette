@@ -6,7 +6,7 @@ const BlurredImage = ({ src, variant, initialBlur, ...handlers }) => {
   const mouseLeaveBlur = initialBlur ? initialBlur : "0";
   const { handleLoad, setPalette } = handlers;
   const imgRef = useRef(null);
-  // console.log(handleLoad);
+
   return (
     <Image
       onMouseEnter={() => setBlur("6px")}

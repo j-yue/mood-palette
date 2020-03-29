@@ -1,9 +1,8 @@
 import React from "react";
 import { Flex } from "rebass";
-// import SlidePanel from "./slidePanel";
 import Mood from "./mood";
 
-const Workspace = ({ slidePanel, images, colors, moods }) => {
+const Workspace = ({ images, colors, moods }) => {
   //generate unique key
   let count = 0;
   return (

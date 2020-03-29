@@ -177,7 +177,8 @@ export default {
       borderRadius: "slidePanelRadius",
       width: "calc(50% - 1rem)",
       height: "10rem",
-      mr: "1rem"
+      mr: "1rem",
+      filter: "blur(6px)"
     },
     colorComparison: {
       height: "10rem",
