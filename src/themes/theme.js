@@ -98,13 +98,22 @@ export default {
     },
     workspace: {
       px: "5rem",
-      flexDirection: "row",
-      flexWrap: "wrap",
+      // flexDirection: "row",
+      // flexWrap: "wrap",
+      flexFlow: "row wrap",
+      // alignItems: "space-evenly",
+      // justifyContent: "center",
       pt: "5.5rem",
       pb: "calc(5.5rem - 2rem)" //match whitespace from pt
     },
     mood: {
-      height: "18.rem",
+      // position: "relative",
+      // display: "block",
+      height: "18rem",
+      width: "100%",
+      mb: "2rem"
+    },
+    moodUploaded: {
       width: "100%",
       mb: "2rem"
     },
@@ -122,6 +131,7 @@ export default {
     },
     tile: {
       height: "15rem",
+      minHeight: "15rem",
       minWidth: "30%",
       maxWidth: "30%",
       flexWrap: "nowrap",

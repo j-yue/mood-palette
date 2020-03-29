@@ -4,8 +4,15 @@ import { Flex, Button } from "rebass";
 import { GlobalContext } from "../context/globalContext";
 
 const handleChange = (files, uploadedImages, setUploadedImages) => {
-  const result = Object.values(files).map(file => URL.createObjectURL(file));
-  setUploadedImages([...uploadedImages, ...result]);
+  const images = Object.values(files).map(file => URL.createObjectURL(file));
+  // console.log(uploadedImages);
+  // if (!uploadedImages) result = [...uploadedImages, ...result];
+  // console.log(uploadedImages);
+  // setUploadedImages([...uploadedImages, ...result]);
+  // console.log(uploadedImages == true);
+  // setUploadedImages(result);
+  const result = uploadedImages ? [...images, ...uploadedImages] : [...images];
+  setUploadedImages(result);
 };
 
 const Upload = () => {

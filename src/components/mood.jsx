@@ -1,15 +1,14 @@
 import React from "react";
 import { Heading, Box } from "rebass";
-import Carousel from "./carousel";
 
-const Mood = ({ name, images, colors }) => {
+const Mood = ({ name, images, Component, variant }) => {
   return (
-    <Box variant="mood">
+    <Box variant={variant}>
       <Heading as="h2" variant="moodHeader" pl="3.5rem">
         {name}
       </Heading>
 
-      <Carousel images={images} colors={colors} name={name} />
+      <Component images={images} name={name} />
     </Box>
   );
 };

@@ -112,7 +112,7 @@ let state = {
 
 const App = () => {
   const [slidePanel, setSlidePanel] = useState(null);
-  const [uploadedImages, setUploadedImages] = useState([]);
+  const [uploadedImages, setUploadedImages] = useState(null);
   const [moods, setMoods] = useState({});
   const [searchHistory, setSearchHistory] = useState([]);
   return (
@@ -136,10 +136,11 @@ const App = () => {
             )}
             <Header />
             <Workspace
-              slidePanel={state.slidePanel}
-              images={state.images}
-              colors={state.colors}
+              // slidePanel={state.slidePanel}
+              // images={state.images}
+              // colors={state.colors}
               moods={state.moods}
+              uploadedImages={uploadedImages}
             />
           </Box>
         </GlobalProvider>
