@@ -4,9 +4,7 @@ import Tile from "./tile";
 
 import { GlobalContext } from "../context/globalContext";
 
-const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
-// console.log(process.env);
-const fetchResult = query => {};
+// const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
 
 const SearchResults = ({ name = "Search Results" }) => {
   const { search } = useContext(GlobalContext);
