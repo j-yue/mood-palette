@@ -20,7 +20,7 @@ const SlidePanel = ({ data, setSlidePanel }) => {
         variant="moodHeader"
         sx={{
           textAlign: "center",
-          my: "4rem",
+          my: "2rem",
           p: "0"
         }}
       >

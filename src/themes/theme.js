@@ -55,15 +55,16 @@ export default {
 
   buttons: {
     searchButton: {
-      borderRadius: "0 4px 4px 0",
       bg: "secondary",
       borderColor: "secondary",
-      width: "10%",
+      minWidth: "3rem",
       maxWidth: "3rem",
+      maxHeight: "3rem",
       display: "flex",
       flexFlor: "row nowrap",
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
+      borderRadius: "0"
     },
     uploadButton: {
       bg: "secondary",
@@ -90,9 +91,16 @@ export default {
       alignItems: "center"
     },
     searchBar: {
-      width: "40%",
-      height: "headerButtonsH"
+      width: "100%",
+      flexFlow: "column nowrap",
+      height: "headerButtonsH",
+      // height: "3rem",
+      color: "white",
+      border: "1px solid white",
+      borderColor: "secondary",
+      borderRadius: "4px"
     },
+    searchInput: {},
     upload: {
       width: "20%"
     },
@@ -175,7 +183,8 @@ export default {
       flexWrap: "wrap",
       width: "100%",
       height: "100%",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
+      objectFit: "inherit"
     },
     closeIcon: {
       opacity: ".54",
@@ -201,8 +210,8 @@ export default {
     slidePanelImage: {
       borderRadius: "slidePanelRadius",
       width: "100%",
-      height: "20rem",
-      mt: "1rem"
+      mt: "1rem",
+      objectFit: "cover"
     },
     roundColor: {
       width: "2.5rem",

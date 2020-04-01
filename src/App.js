@@ -8,6 +8,7 @@ import theme from "./themes/theme";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
 import SlidePanel from "./components/slidePanel";
+// import SearchResults from "./components/searchResults";
 
 let state = {
   slidePanel: "images/feathers.jpg",
@@ -114,7 +115,8 @@ const App = () => {
   const [slidePanel, setSlidePanel] = useState(null);
   const [uploadedImages, setUploadedImages] = useState(null);
   const [moods, setMoods] = useState({});
-  const [searchHistory, setSearchHistory] = useState([]);
+  const [search, setSearch] = useState(null);
+  // const [searchHistory, setSearchHistory] = useState([]);
   return (
     <Flex className="App">
       <ThemeProvider theme={theme}>
@@ -126,16 +128,20 @@ const App = () => {
             setUploadedImages,
             moods,
             setMoods,
-            searchHistory,
-            setSearchHistory
+            search,
+            setSearch
           }}
         >
-          <Box bg="white">
+          <Box bg="white" width="100%">
             {slidePanel && (
               <SlidePanel data={slidePanel} setSlidePanel={setSlidePanel} />
             )}
             <Header />
-            <Workspace moods={state.moods} uploadedImages={uploadedImages} />
+
+            {!search && (
+              <Workspace moods={state.moods} uploadedImages={uploadedImages} />
+            )}
+            {/* {search && <SearchResults />} */}
           </Box>
         </GlobalProvider>
       </ThemeProvider>
