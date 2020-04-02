@@ -128,8 +128,8 @@ const App = () => {
   const [showSuggestions, setShowSuggestions] = useState(true);
 
   return (
-    <Flex className="App" onClick={() => setShowSuggestions(false)}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Flex className="App" onClick={() => setShowSuggestions(false)}>
         <GlobalProvider
           value={{
             slidePanel,
@@ -158,8 +158,8 @@ const App = () => {
             {search && <SearchResults />}
           </Box>
         </GlobalProvider>
-      </ThemeProvider>
-    </Flex>
+      </Flex>
+    </ThemeProvider>
   );
 };
 

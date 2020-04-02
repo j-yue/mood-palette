@@ -1,4 +1,5 @@
 export default {
+  // breakpoints: ["0px", "1024px", "1440px", "2560px"],
   colors: {
     primary: "#1B1B1B", //blackish gray
     secondary: "#6FE4AD", //light green
@@ -84,6 +85,8 @@ export default {
       flexDirection: "column",
       justifyContent: "space-between",
       fontSize: "1rem",
+
+      // fontSize: [50, 100, 150, 200],
       lineHeight: "1.5rem",
       minWidth: "layoutW"
     },
