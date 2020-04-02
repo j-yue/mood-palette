@@ -8,6 +8,7 @@ import theme from "./themes/theme";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
 import SlidePanel from "./components/slidePanel";
+import SearchResults from "./components/searchResults";
 
 import {
   SUGGESTIONS,
@@ -124,8 +125,10 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState(null);
 
+  const [showSuggestions, setShowSuggestions] = useState(true);
+
   return (
-    <Flex className="App">
+    <Flex className="App" onClick={() => setShowSuggestions(false)}>
       <ThemeProvider theme={theme}>
         <GlobalProvider
           value={{
@@ -138,7 +141,9 @@ const App = () => {
             search,
             setSearch,
             searchResults,
-            setSearchResults
+            setSearchResults,
+            showSuggestions,
+            setShowSuggestions
           }}
         >
           <Box bg="white" width="100%">
@@ -150,7 +155,7 @@ const App = () => {
             {!search && (
               <Workspace moods={state.moods} uploadedImages={uploadedImages} />
             )}
-            {/* {search && <SearchResults />} */}
+            {search && <SearchResults />}
           </Box>
         </GlobalProvider>
       </ThemeProvider>

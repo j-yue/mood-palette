@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Flex } from "rebass";
+import { Box, Flex, Heading } from "rebass";
 import Tile from "./tile";
 
 import { GlobalContext } from "../context/globalContext";
@@ -7,7 +7,7 @@ import { GlobalContext } from "../context/globalContext";
 // const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
 
 const SearchResults = ({ name = "Search Results" }) => {
-  const { search } = useContext(GlobalContext);
+  const { searchResults } = useContext(GlobalContext);
 
   //generate key
   let count = 0;
@@ -21,9 +21,10 @@ const SearchResults = ({ name = "Search Results" }) => {
         justifyContent: "space-between"
       }}
     >
+      <Heading as="h2">{name}</Heading>
       {/* {searchResults.map(image => (
-        <Tile src={image} name={name} key={count++} m="0" mb="2rem" /> */}
-      ))}
+        <Tile src={image} name={name} key={count++} m="0" mb="2rem" />
+      ))} */}
     </Flex>
   );
 };

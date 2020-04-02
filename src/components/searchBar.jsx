@@ -7,18 +7,20 @@ import Suggestions from "./suggestions";
 import { getSuggestions } from "./utils/searchBar";
 import { GlobalContext } from "../context/globalContext";
 
-const SearchBar = ({ showSuggestions, setShowSuggestions }) => {
+const SearchBar = () => {
   //keep track of search string
   const [search, setSearch] = useState("");
   const {
     search: globalSearch,
-    setSearch: setGlobalSearch
+    setSearch: setGlobalSearch,
+    showSuggestions,
+    setShowSuggestions
     // setSearchResults
   } = useContext(GlobalContext);
 
-  // const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
-  // const KEY = process.env.REACT_APP_UNSPLASH_KEY;
-  // const URL = `https://api.unsplash.com/search/photos?page=1&query=${globalSearch}&client_id=${KEY}`;
+  const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
+  const KEY = process.env.REACT_APP_UNSPLASH_KEY;
+  const URL = `https://api.unsplash.com/search/photos?page=1&query=${globalSearch}&client_id=${KEY}`;
 
   const [suggestions, setSuggestions] = useState([]);
 
