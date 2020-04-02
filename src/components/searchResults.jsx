@@ -8,7 +8,7 @@ import { GlobalContext } from "../context/globalContext";
 
 const SearchResults = ({ name = "Search Results" }) => {
   const { searchResults } = useContext(GlobalContext);
-
+  console.log(searchResults);
   //generate key
   let count = 0;
   return (

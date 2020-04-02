@@ -7,6 +7,20 @@ import Suggestions from "./suggestions";
 import { getSuggestions } from "./utils/searchBar";
 import { GlobalContext } from "../context/globalContext";
 
+const filterResults = results => {
+  let images = [];
+  for (let imgObj of results) {
+    const { urls, links, user } = imgObj;
+    images.push({
+      src: urls.small,
+      download: links.download_location,
+      name: user.name,
+      link: user.links.self
+    });
+  }
+  return images;
+};
+
 const SearchBar = () => {
   //keep track of search string
   const [search, setSearch] = useState("");
@@ -14,13 +28,14 @@ const SearchBar = () => {
     search: globalSearch,
     setSearch: setGlobalSearch,
     showSuggestions,
-    setShowSuggestions
-    // setSearchResults
+    setShowSuggestions,
+    setSearchResults
   } = useContext(GlobalContext);
 
-  const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
+  // const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
   const KEY = process.env.REACT_APP_UNSPLASH_KEY;
-  const URL = `https://api.unsplash.com/search/photos?page=1&query=${globalSearch}&client_id=${KEY}`;
+  const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
+  // {globalSearch}&client_id=${KEY}`;
 
   const [suggestions, setSuggestions] = useState([]);
 
@@ -28,7 +43,10 @@ const SearchBar = () => {
   useEffect(() => {
     setSuggestions([]);
     setSearch(globalSearch);
-    // console.log(URL);
+    fetch(ENDPT + globalSearch + `&client_id=${KEY}`)
+      .then(res => res.json())
+      .then(data => setSearchResults(filterResults(data.results)));
+    // if (!globalSearch) console.log("detected");
   }, [globalSearch]);
 
   return (
@@ -49,12 +67,16 @@ const SearchBar = () => {
             setSearch(e.target.value);
             setSuggestions(getSuggestions(e.target.value));
             setShowSuggestions(true);
+            if (!e.target.value) setGlobalSearch("");
+          }}
+          onKeyPress={e => {
+            if (e.key === "Enter") setGlobalSearch(e.target.value);
           }}
           sx={{
             border: "none"
           }}
         />
-        <Button variant="searchButton">
+        <Button variant="searchButton" onClick={() => setGlobalSearch(search)}>
           <Icon name="search" onClick={e => e.preventDefault()} />
         </Button>
       </Flex>
