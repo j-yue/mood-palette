@@ -43,7 +43,8 @@ export default {
 
   sizes: {
     headerH: "15.5rem",
-    headerButtonsH: "2.75rem"
+    headerButtonsH: "2.75rem",
+    layoutW: "1024px"
   },
 
   space: {
@@ -83,7 +84,8 @@ export default {
       flexDirection: "column",
       justifyContent: "space-between",
       fontSize: "1rem",
-      lineHeight: "1.5rem"
+      lineHeight: "1.5rem",
+      minWidth: "layoutW"
     },
     headerActions: {
       height: "100%",
@@ -106,17 +108,12 @@ export default {
     },
     workspace: {
       px: "5rem",
-      // flexDirection: "row",
-      // flexWrap: "wrap",
       flexFlow: "row wrap",
-      // alignItems: "space-evenly",
-      // justifyContent: "center",
+      minWidth: "layoutW",
       pt: "5.5rem",
       pb: "calc(5.5rem - 2rem)" //match whitespace from pt
     },
     mood: {
-      // position: "relative",
-      // display: "block",
       height: "18rem",
       width: "100%",
       mb: "2rem"
@@ -129,7 +126,6 @@ export default {
       flexDirection: "row",
       flexWrap: "nowrap",
       alignItems: "center"
-      // border: "3px dashed pink"
     },
     carousel: {
       minWidth: "100%",

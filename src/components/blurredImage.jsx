@@ -20,6 +20,7 @@ const BlurredImage = ({ src, variant, initialBlur, ...handlers }) => {
       onLoad={() => {
         setPalette(handleLoad(imgRef.current));
       }}
+      crossOrigin="anonymous"
     />
   );
 };

@@ -6,9 +6,23 @@ import { GlobalContext } from "../context/globalContext";
 
 // const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
 
-const SearchResults = ({ name = "Search Results" }) => {
+const renderImages = images => {
+  if (images.length === 0) return <Heading as="h2">No results found</Heading>;
+  let count = 0;
+  return (
+    <React.Fragment>
+      <Heading as="h2">Search Results</Heading>
+      {images.map(index => {
+        return <Tile src={index.src} name="Search Results" key={count++} />;
+      })}
+    </React.Fragment>
+  );
+};
+
+const SearchResults = () => {
   const { searchResults } = useContext(GlobalContext);
-  console.log(searchResults);
+  // console.log(searchResults);
+  // const { src, download, name, link } = searchResults;
   //generate key
   let count = 0;
   return (
@@ -21,9 +35,16 @@ const SearchResults = ({ name = "Search Results" }) => {
         justifyContent: "space-between"
       }}
     >
-      <Heading as="h2">{name}</Heading>
-      {/* {searchResults.map(image => (
-        <Tile src={image} name={name} key={count++} m="0" mb="2rem" />
+      {renderImages(searchResults)}
+      {/* <Heading as="h2">Search Results</Heading>
+      {searchResults.map(index => (
+        <Tile
+          src={index.src}
+          name="Search Results"
+          key={count++}
+          m="0"
+          mb="2rem"
+        />
       ))} */}
     </Flex>
   );

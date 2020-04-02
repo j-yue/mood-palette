@@ -9,12 +9,15 @@ import { GlobalContext } from "../context/globalContext";
 
 const filterResults = results => {
   let images = [];
+  console.log(results.length);
+  if (results.length === 0) return [];
   for (let imgObj of results) {
     const { urls, links, user } = imgObj;
     images.push({
       src: urls.small,
       download: links.download_location,
       name: user.name,
+      // name: `${user.first_name} ${user.last_name[0]}.`,
       link: user.links.self
     });
   }
@@ -32,10 +35,8 @@ const SearchBar = () => {
     setSearchResults
   } = useContext(GlobalContext);
 
-  // const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
   const KEY = process.env.REACT_APP_UNSPLASH_KEY;
   const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
-  // {globalSearch}&client_id=${KEY}`;
 
   const [suggestions, setSuggestions] = useState([]);
 
@@ -45,8 +46,8 @@ const SearchBar = () => {
     setSearch(globalSearch);
     fetch(ENDPT + globalSearch + `&client_id=${KEY}`)
       .then(res => res.json())
+      // .then(data => console.log(filterResults(data.results)));
       .then(data => setSearchResults(filterResults(data.results)));
-    // if (!globalSearch) console.log("detected");
   }, [globalSearch]);
 
   return (
@@ -62,12 +63,12 @@ const SearchBar = () => {
           type="search"
           px=".5rem"
           value={search}
-          placeholder="search for a color mood"
+          placeholder="Search Unsplash photos"
           onChange={e => {
             setSearch(e.target.value);
             setSuggestions(getSuggestions(e.target.value));
             setShowSuggestions(true);
-            if (!e.target.value) setGlobalSearch("");
+            if (!e.target.value) setGlobalSearch([]);
           }}
           onKeyPress={e => {
             if (e.key === "Enter") setGlobalSearch(e.target.value);
@@ -77,7 +78,10 @@ const SearchBar = () => {
           }}
         />
         <Button variant="searchButton" onClick={() => setGlobalSearch(search)}>
-          <Icon name="search" onClick={e => e.preventDefault()} />
+          <Icon
+            name="search"
+            // onClick={e => e.preventDefault()}
+          />
         </Button>
       </Flex>
       {showSuggestions && (
