@@ -15,7 +15,7 @@ const Workspace = ({ uploadedImages, moods, searchResults, search }) => {
       {!search && uploadedImages && <UploadedImages />}
       {!search &&
         moods.map(mood => (
-          <Carousel images={mood} name="carousel" key={count++} />
+          <Carousel images={mood} name={`carousel${count}`} key={count++} />
         ))}
     </Flex>
   );

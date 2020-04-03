@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Box, Flex } from "rebass";
+import { Box, Flex, Heading } from "rebass";
 import Tile from "./tile";
 import ArrowIcon from "./arrowIcon";
 import { setLast, showArrow } from "./utils/carouselHelpers";
-import withHeading from "./hoc/withHeading";
 //component displays 3 full images and part of the next image at one time
+
+// let NAME = "name";
 
 //images is an array of image srcs
 const Carousel = ({ images, name }) => {
+  // NAME = name;
   // console.log(withHeading);
   //current keeps track of the index of the first img shown in the list
   const [current, setCurrent] = useState(0);
@@ -39,30 +41,34 @@ const Carousel = ({ images, name }) => {
   }, [current]);
 
   return (
-    <Flex variant="carouselWrapper">
-      <Box
-        variant="arrowIcon"
-        sx={{ display: showLeftArrow }}
-        onClick={() => setCurrent(current - 2)}
-      >
-        <ArrowIcon name="arrow-left" />
-      </Box>
-      <Flex variant="carousel">
-        {row.map(src => (
-          <Tile src={src} key={count++} name={name} />
-        ))}
-      </Flex>
+    <Box variant="mood">
+      <Heading as="h2" variant="moodHeader">
+        {name}
+      </Heading>
+      <Flex variant="carouselWrapper">
+        <Box
+          variant="arrowIcon"
+          sx={{ display: showLeftArrow }}
+          onClick={() => setCurrent(current - 2)}
+        >
+          <ArrowIcon name="arrow-left" />
+        </Box>
+        <Flex variant="carousel">
+          {row.map(src => (
+            <Tile src={src} key={count++} name={name} />
+          ))}
+        </Flex>
 
-      <Box
-        variant="arrowIcon"
-        sx={{ display: showRightArrow }}
-        onClick={() => setCurrent(current + 2)}
-      >
-        <ArrowIcon name="arrow-right" />
-      </Box>
-    </Flex>
+        <Box
+          variant="arrowIcon"
+          sx={{ display: showRightArrow }}
+          onClick={() => setCurrent(current + 2)}
+        >
+          <ArrowIcon name="arrow-right" />
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 
-// export default Carousel;
-export default withHeading(Carousel, "mood", "moodHeader", "Carousel Header");
+export default Carousel;

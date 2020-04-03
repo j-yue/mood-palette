@@ -5,25 +5,20 @@ import Tile from "./tile";
 import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
 
-// const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
-
-const renderImages = images => {
+const renderImages = (images, name) => {
   if (images.length === 0) return <Heading as="h2">No results found</Heading>;
   let count = 0;
   return (
     <React.Fragment>
-      {/* <Heading as="h2">Search Results</Heading> */}
       {images.map(index => {
-        return <Tile src={index.src} name="Search Results" key={count++} />;
+        return <Tile src={index.src} name={name} key={count++} />;
       })}
     </React.Fragment>
   );
 };
 
 const SearchResults = () => {
-  const { searchResults } = useContext(GlobalContext);
-  // console.log(searchResults);
-  // const { src, download, name, link } = searchResults;
+  const { search, searchResults } = useContext(GlobalContext);
   //generate key
   let count = 0;
   return (
@@ -36,7 +31,7 @@ const SearchResults = () => {
         justifyContent: "space-between"
       }}
     >
-      {renderImages(searchResults)}
+      {renderImages(searchResults, search)}
       {/* <Heading as="h2">Search Results</Heading>
       {searchResults.map(index => (
         <Tile
@@ -52,4 +47,9 @@ const SearchResults = () => {
 };
 
 // export default SearchResults;
-export default withHeading(SearchResults, "", "moodHeader", "Search Results");
+export default withHeading(
+  SearchResults,
+  "moodUploaded",
+  "moodHeader",
+  "Search Results"
+);

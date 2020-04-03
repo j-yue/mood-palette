@@ -4,7 +4,8 @@ import Tile from "./tile";
 import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
 
-const UploadedImages = ({ name = "Uploaded Images" }) => {
+const UploadedImages = () => {
+  const name = "Uploaded Images";
   const { uploadedImages } = useContext(GlobalContext);
 
   //generate key
