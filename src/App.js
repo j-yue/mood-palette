@@ -8,12 +8,6 @@ import theme from "./themes/theme";
 import Header from "./components/header";
 import Workspace from "./components/workspace";
 import SlidePanel from "./components/slidePanel";
-import SearchResults from "./components/searchResults";
-
-import {
-  SUGGESTIONS,
-  purgeSuggestions
-} from "./components/utils/emotions/suggestions";
 
 let state = {
   slidePanel: "images/feathers.jpg",
@@ -116,8 +110,6 @@ let state = {
   ]
 };
 
-// purgeSuggestions();
-
 const App = () => {
   const [slidePanel, setSlidePanel] = useState(null);
   const [uploadedImages, setUploadedImages] = useState(null);
@@ -152,10 +144,12 @@ const App = () => {
             )}
             <Header />
 
-            {!search && (
-              <Workspace moods={state.moods} uploadedImages={uploadedImages} />
-            )}
-            {search && <SearchResults />}
+            <Workspace
+              moods={state.moods}
+              uploadedImages={uploadedImages}
+              searchResults={searchResults}
+              search={search}
+            />
           </Box>
         </GlobalProvider>
       </Flex>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Box, Flex } from "rebass";
 import Tile from "./tile";
-
+import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
 
 const UploadedImages = ({ name = "Uploaded Images" }) => {
@@ -26,4 +26,10 @@ const UploadedImages = ({ name = "Uploaded Images" }) => {
   );
 };
 
-export default UploadedImages;
+export default withHeading(
+  UploadedImages,
+  "moodUploaded",
+  "moodHeader",
+  "Uploaded Images"
+);
+// export default UploadedImages;

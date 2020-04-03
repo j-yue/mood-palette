@@ -3,10 +3,12 @@ import { Box, Flex } from "rebass";
 import Tile from "./tile";
 import ArrowIcon from "./arrowIcon";
 import { setLast, showArrow } from "./utils/carouselHelpers";
+import withHeading from "./hoc/withHeading";
 //component displays 3 full images and part of the next image at one time
 
 //images is an array of image srcs
 const Carousel = ({ images, name }) => {
+  // console.log(withHeading);
   //current keeps track of the index of the first img shown in the list
   const [current, setCurrent] = useState(0);
 
@@ -62,4 +64,5 @@ const Carousel = ({ images, name }) => {
   );
 };
 
-export default Carousel;
+// export default Carousel;
+export default withHeading(Carousel, "mood", "moodHeader", "Carousel Header");

@@ -17,7 +17,6 @@ const filterResults = results => {
       src: urls.small,
       download: links.download_location,
       name: user.name,
-      // name: `${user.first_name} ${user.last_name[0]}.`,
       link: user.links.self
     });
   }
@@ -46,8 +45,8 @@ const SearchBar = () => {
     setSearch(globalSearch);
     fetch(ENDPT + globalSearch + `&client_id=${KEY}`)
       .then(res => res.json())
-      // .then(data => console.log(filterResults(data.results)));
       .then(data => setSearchResults(filterResults(data.results)));
+    if (search.length === 0) setGlobalSearch("");
   }, [globalSearch]);
 
   return (

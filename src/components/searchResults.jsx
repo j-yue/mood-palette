@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Box, Flex, Heading } from "rebass";
 import Tile from "./tile";
 
+import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
 
 // const UNSPLASH_ENDPT = "https://api.unsplash.com/photos/?client_id=";
@@ -11,7 +12,7 @@ const renderImages = images => {
   let count = 0;
   return (
     <React.Fragment>
-      <Heading as="h2">Search Results</Heading>
+      {/* <Heading as="h2">Search Results</Heading> */}
       {images.map(index => {
         return <Tile src={index.src} name="Search Results" key={count++} />;
       })}
@@ -50,4 +51,5 @@ const SearchResults = () => {
   );
 };
 
-export default SearchResults;
+// export default SearchResults;
+export default withHeading(SearchResults, "", "moodHeader", "Search Results");
