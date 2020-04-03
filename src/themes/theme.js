@@ -1,5 +1,4 @@
 export default {
-  // breakpoints: ["0px", "1024px", "1440px", "2560px"],
   colors: {
     primary: "#1B1B1B", //blackish gray
     secondary: "#6FE4AD", //light green
@@ -11,7 +10,6 @@ export default {
     body: "'Open Sans', sans-serif",
     heading: "inherit"
   },
-
   text: {
     logo: {
       color: "white",
@@ -34,18 +32,22 @@ export default {
       fontSize: "2.5rem",
       lineHeight: "3rem",
       fontWeight: "600",
-      pb: ".5rem"
+      pb: ".5rem",
+      pl: "3.5rem"
     }
   },
 
   radii: {
-    slidePanelRadius: "10px"
+    slidePanelRadius: "10px",
+    tileRadius: "",
+    buttonRadius: "4px"
   },
 
   sizes: {
     headerH: "15.5rem",
     headerButtonsH: "2.75rem",
-    layoutW: "1024px"
+    layoutW: "1024px",
+    buttonH: "3rem"
   },
 
   space: {
@@ -56,12 +58,23 @@ export default {
   },
 
   buttons: {
+    primary: {
+      bg: "secondary",
+      borderRadius: "buttonRadius",
+      minHeight: "buttonH",
+      maxHeight: "buttonH",
+      display: "flex",
+      flexFlow: "row nowrap",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "black"
+    },
     searchButton: {
       bg: "secondary",
       borderColor: "secondary",
-      minWidth: "3rem",
-      maxWidth: "3rem",
-      maxHeight: "3rem",
+      minWidth: "buttonH",
+      maxWidth: "buttonH",
+      maxHeight: "buttonH",
       display: "flex",
       flexFlor: "row nowrap",
       alignItems: "center",
@@ -123,7 +136,10 @@ export default {
     },
     moodUploaded: {
       width: "100%",
-      mb: "2rem"
+      mb: "2rem",
+      // px: "3.5rem",
+      flexFlow: "row wrap",
+      justifyContent: "space-between"
     },
     carouselWrapper: {
       flexDirection: "row",

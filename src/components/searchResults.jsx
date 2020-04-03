@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Flex, Heading } from "rebass";
+import { Box, Flex, Heading, Button } from "rebass";
 import Tile from "./tile";
 
 import withHeading from "./hoc/withHeading";
@@ -11,7 +11,9 @@ const renderImages = (images, name) => {
   return (
     <React.Fragment>
       {images.map(index => {
-        return <Tile src={index.src} name={name} key={count++} />;
+        return (
+          <Tile src={index.src} name={name} key={count++} m="0" mb="2rem" />
+        );
       })}
     </React.Fragment>
   );
@@ -22,27 +24,20 @@ const SearchResults = () => {
   //generate key
   let count = 0;
   return (
-    <Flex
-      className="searchResults"
-      // variant=""
-      sx={{
-        px: "3.5rem",
-        flexFlow: "row wrap",
-        justifyContent: "space-between"
-      }}
-    >
-      {renderImages(searchResults, search)}
-      {/* <Heading as="h2">Search Results</Heading>
-      {searchResults.map(index => (
-        <Tile
-          src={index.src}
-          name="Search Results"
-          key={count++}
-          m="0"
-          mb="2rem"
-        />
-      ))} */}
-    </Flex>
+    <React.Fragment>
+      <Flex
+        className="searchResults"
+        // variant=""
+        sx={{
+          px: "3.5rem",
+          flexFlow: "row wrap",
+          justifyContent: "space-between"
+        }}
+      >
+        {renderImages(searchResults, search)}
+      </Flex>
+      <Button variant="uploadeButton">More</Button>
+    </React.Fragment>
   );
 };
 

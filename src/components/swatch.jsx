@@ -1,6 +1,5 @@
-import React from "react";
-// import * as eva from "eva-icons";
-import { Flex } from "rebass";
+import React, { useState, useEffect } from "react";
+import { Flex, Box } from "rebass";
 import Icon from "./icon";
 
 const copyToClipboard = color => {
@@ -13,6 +12,15 @@ const copyToClipboard = color => {
 };
 
 const Swatch = ({ color }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    if (showTooltip) {
+      setTimeout(() => {
+        setShowTooltip(false);
+      }, 1000);
+    }
+  }, [showTooltip]);
   return (
     <Flex
       width="100%"
@@ -25,17 +33,29 @@ const Swatch = ({ color }) => {
       fontSize="24px"
       lineHeight="33px"
       color="#fff"
-      sx={{ borderRadius: "10px", textTransform: "uppercase" }}
-      onClick={() => copyToClipboard(color)}
+      sx={{
+        position: "relative",
+        borderRadius: "10px",
+        textTransform: "uppercase"
+      }}
+      onClick={() => {
+        copyToClipboard(color);
+        setShowTooltip(true);
+      }}
     >
-      <Icon
-        name="clipboard-outline"
-        data-eva-fill="#fff"
-        data-eva-width="1.5rem"
-        data-eva-height="1.5rem"
-        style={{ marginRight: "1rem" }}
-      />
-      {color}
+      {showTooltip && <Box>Copied!</Box>}
+      {!showTooltip && (
+        <Box>
+          <Icon
+            name="clipboard-outline"
+            data-eva-fill="#fff"
+            data-eva-width="1.5rem"
+            data-eva-height="1.5rem"
+            style={{ marginRight: "1rem" }}
+          />
+          {color}
+        </Box>
+      )}
     </Flex>
   );
 };

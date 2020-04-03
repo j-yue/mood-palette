@@ -76,11 +76,19 @@ const SearchBar = () => {
             border: "none"
           }}
         />
-        <Button variant="searchButton" onClick={() => setGlobalSearch(search)}>
-          <Icon
-            name="search"
-            // onClick={e => e.preventDefault()}
-          />
+        <Button
+          variant="primary"
+          sx={{
+            minWidth: "buttonH",
+            alignSelf: "flex-end",
+            borderTopLeftRadius: 0,
+            borderBottomLeftRadius: 0
+            // borderRadius: "0 buttonRadius buttonRadius 0
+          }}
+          // variant="searchButton"
+          onClick={() => setGlobalSearch(search)}
+        >
+          <Icon name="search" />
         </Button>
       </Flex>
       {showSuggestions && (
