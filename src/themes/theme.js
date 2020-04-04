@@ -94,14 +94,7 @@ export default {
       flexFlow: "column nowrap",
       height: "headerButtonsH",
       color: "white",
-      // color: "secondary",
-      // border: "1px solid white",
-      // borderColor: "secondary",
       borderRadius: "buttonRadius"
-    },
-    searchInput: {},
-    upload: {
-      width: "20%"
     },
     workspace: {
       px: "5rem",
@@ -151,9 +144,6 @@ export default {
       minHeight: "25%",
       maxHeight: "25%",
       zIndex: "2" //cover blur from blurredImage
-    },
-    color: {
-      flex: "1 1 auto"
     },
     arrowIcon: {
       position: "relative",
@@ -213,15 +203,6 @@ export default {
       height: "2.5rem",
       borderRadius: "1.25rem",
       border: "3px solid #fff"
-    }
-  },
-
-  forms: {
-    searchInput: {
-      borderRadius: ".4rem 0 0 .4rem",
-      borderColor: "secondary",
-      color: "white",
-      pl: ".5rem"
     }
   }
 };

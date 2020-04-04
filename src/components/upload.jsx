@@ -25,7 +25,7 @@ const Upload = () => {
   const { uploadedImages, setUploadedImages } = useContext(GlobalContext);
 
   return (
-    <Flex variant="upload">
+    <Flex width="20%">
       <Input
         id="upload"
         type="file"

@@ -53,7 +53,6 @@ const SearchBar = () => {
       >
         <Input
           type="search"
-          px=".5rem"
           value={search}
           placeholder="Search Unsplash photos"
           onChange={e => {
@@ -68,6 +67,7 @@ const SearchBar = () => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           sx={{
+            px: ".5rem",
             border: "1px solid inherit",
             borderColor: "secondary",
             borderTopLeftRadius: "buttonRadius",
