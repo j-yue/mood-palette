@@ -36,13 +36,8 @@ const Upload = () => {
           handleChange(e.target.files, uploadedImages, setUploadedImages)
         }
       />
-      <Button
-        variant="primary"
-        // variant="uploadButton"
-      >
-        <Label htmlFor="upload" variant="uploadLabel">
-          Upload photo(s)
-        </Label>
+      <Button variant="primary" py=".5rem" px="1rem">
+        <Label htmlFor="upload">Upload photo(s)</Label>
       </Button>
     </Flex>
   );

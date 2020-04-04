@@ -69,24 +69,6 @@ export default {
       alignItems: "center",
       justifyContent: "center",
       color: "black"
-    },
-    searchButton: {
-      bg: "secondary",
-      borderColor: "secondary",
-      minWidth: "buttonH",
-      maxWidth: "buttonH",
-      maxHeight: "buttonH",
-      display: "flex",
-      flexFlor: "row nowrap",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: "0"
-    },
-    uploadButton: {
-      bg: "secondary",
-      color: "black",
-      borderRadius: "buttonRadius",
-      width: "100%"
     }
   },
 
@@ -240,12 +222,6 @@ export default {
       borderColor: "secondary",
       color: "white",
       pl: ".5rem"
-    },
-
-    uploadLabel: {
-      justifyContent: "center",
-      alignItems: "center",
-      height: "headerButtonsH"
     }
   }
 };
