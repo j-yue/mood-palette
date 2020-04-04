@@ -30,7 +30,6 @@ const getSuggestions = (search, list = SUGGESTIONS) => {
 //extract desired data from fetch response
 const filterResults = results => {
   let images = [];
-  console.log(results.length);
   if (results.length === 0) return [];
   for (let imgObj of results) {
     const { urls, links, user } = imgObj;
@@ -43,4 +42,52 @@ const filterResults = results => {
   }
   return images;
 };
-export { randomWords, getSuggestions, filterResults };
+
+const handleChange = (value, ...handlers) => {
+  const [
+    setSearch,
+    setSuggestions,
+    setShowSuggestions,
+    setGlobalSearch
+  ] = handlers;
+  setSearch(value);
+  setSuggestions(getSuggestions(value));
+  setShowSuggestions(true);
+  if (!value) setGlobalSearch([]);
+};
+
+const handleKeyPress = (e, setGlobalSearch) => {
+  if (e.key === "Enter") setGlobalSearch(e.target.value);
+};
+
+const fetchResults = (globalSearch, setSearchResults) => {
+  const KEY = process.env.REACT_APP_UNSPLASH_KEY;
+  const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
+  fetch(ENDPT + globalSearch + `&client_id=${KEY}`)
+    .then(res => res.json())
+    .then(data => setSearchResults(filterResults(data.results)));
+};
+
+//whenever global search changes, update local state
+//if global search is empty, set to empty string
+const handleGlobalSearchChange = (
+  setSuggestions,
+  setSearch,
+  globalSearch,
+  setSearchResults,
+  setGlobalSearch,
+  isEmpty
+) => {
+  setSuggestions([]);
+  setSearch(globalSearch);
+  fetchResults(globalSearch, setSearchResults);
+  if (isEmpty) setGlobalSearch("");
+};
+
+export {
+  randomWords,
+  filterResults,
+  handleChange,
+  handleKeyPress,
+  handleGlobalSearchChange
+};

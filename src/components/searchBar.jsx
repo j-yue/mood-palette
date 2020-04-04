@@ -4,13 +4,18 @@ import { Input } from "@rebass/forms";
 import Icon from "./icon";
 import Suggestions from "./suggestions";
 
-import { getSuggestions, filterResults } from "./utils/searchBar";
+import {
+  handleChange,
+  handleKeyPress,
+  handleGlobalSearchChange
+} from "./utils/searchBar";
 import { GlobalContext } from "../context/globalContext";
 
 const SearchBar = () => {
-  //keep track of search string
-  const [search, setSearch] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
+  const [search, setSearch] = useState(""); //keep track of search string
+  const [isFocused, setIsFocused] = useState(false); //toggle colors
+
+  //context
   const {
     search: globalSearch,
     setSearch: setGlobalSearch,
@@ -19,24 +24,24 @@ const SearchBar = () => {
     setSearchResults
   } = useContext(GlobalContext);
 
-  const KEY = process.env.REACT_APP_UNSPLASH_KEY;
-  const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
-
   const [suggestions, setSuggestions] = useState([]);
 
   //the moment the global search state is changed, hide suggestions and fetch results
   useEffect(() => {
-    setSuggestions([]);
-    setSearch(globalSearch);
-    fetch(ENDPT + globalSearch + `&client_id=${KEY}`)
-      .then(res => res.json())
-      .then(data => setSearchResults(filterResults(data.results)));
-    if (search.length === 0) setGlobalSearch("");
+    handleGlobalSearchChange(
+      setSuggestions,
+      setSearch,
+      globalSearch,
+      setSearchResults,
+      setGlobalSearch,
+      search.length === 0
+    );
   }, [globalSearch]);
 
   return (
     <Flex
       variant="searchBar"
+      //keep track of whether or not user clicked outside search bar
       onClick={e => {
         e.stopPropagation();
       }}
@@ -55,15 +60,16 @@ const SearchBar = () => {
           type="search"
           value={search}
           placeholder="Search Unsplash photos"
-          onChange={e => {
-            setSearch(e.target.value);
-            setSuggestions(getSuggestions(e.target.value));
-            setShowSuggestions(true);
-            if (!e.target.value) setGlobalSearch([]);
-          }}
-          onKeyPress={e => {
-            if (e.key === "Enter") setGlobalSearch(e.target.value);
-          }}
+          onChange={e =>
+            handleChange(
+              e.target.value,
+              setSearch,
+              setSuggestions,
+              setShowSuggestions,
+              setGlobalSearch
+            )
+          }
+          onKeyPress={e => handleKeyPress(e, setGlobalSearch)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           sx={{
@@ -79,7 +85,9 @@ const SearchBar = () => {
             }
           }}
         />
+
         <Button
+          onClick={() => setGlobalSearch(search)}
           variant="primary"
           sx={{
             minWidth: "buttonH",
@@ -87,11 +95,11 @@ const SearchBar = () => {
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0
           }}
-          onClick={() => setGlobalSearch(search)}
         >
           <Icon name="search" />
         </Button>
       </Flex>
+
       {showSuggestions && (
         <Suggestions
           suggestions={suggestions}
