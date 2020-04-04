@@ -4,28 +4,13 @@ import { Input } from "@rebass/forms";
 import Icon from "./icon";
 import Suggestions from "./suggestions";
 
-import { getSuggestions } from "./utils/searchBar";
+import { getSuggestions, filterResults } from "./utils/searchBar";
 import { GlobalContext } from "../context/globalContext";
-
-const filterResults = results => {
-  let images = [];
-  console.log(results.length);
-  if (results.length === 0) return [];
-  for (let imgObj of results) {
-    const { urls, links, user } = imgObj;
-    images.push({
-      src: urls.small,
-      download: links.download_location,
-      name: user.name,
-      link: user.links.html
-    });
-  }
-  return images;
-};
 
 const SearchBar = () => {
   //keep track of search string
   const [search, setSearch] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
   const {
     search: globalSearch,
     setSearch: setGlobalSearch,
@@ -55,9 +40,17 @@ const SearchBar = () => {
       onClick={e => {
         e.stopPropagation();
       }}
-      height="3rem"
     >
-      <Flex width="100%" height="3rem" minHeight="3rem">
+      <Flex
+        width="100%"
+        height="3rem"
+        minHeight="3rem"
+        sx={{
+          flexFlow: "row nowrap",
+          justifyContent: "space-between",
+          borderColor: "secondary"
+        }}
+      >
         <Input
           type="search"
           px=".5rem"
@@ -72,20 +65,28 @@ const SearchBar = () => {
           onKeyPress={e => {
             if (e.key === "Enter") setGlobalSearch(e.target.value);
           }}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           sx={{
-            border: "none"
+            border: "1px solid inherit",
+            borderColor: "secondary",
+            borderTopLeftRadius: "buttonRadius",
+            borderBottomLeftRadius: "buttonRadius",
+            width: "100%",
+            "&:focus": {
+              outline: "none",
+              borderColor: "focused"
+            }
           }}
         />
         <Button
           variant="primary"
           sx={{
             minWidth: "buttonH",
-            alignSelf: "flex-end",
+            bg: isFocused ? "focused" : "secondary",
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0
-            // borderRadius: "0 buttonRadius buttonRadius 0
           }}
-          // variant="searchButton"
           onClick={() => setGlobalSearch(search)}
         >
           <Icon name="search" />

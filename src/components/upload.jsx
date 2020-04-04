@@ -36,7 +36,10 @@ const Upload = () => {
           handleChange(e.target.files, uploadedImages, setUploadedImages)
         }
       />
-      <Button variant="uploadButton">
+      <Button
+        variant="primary"
+        // variant="uploadButton"
+      >
         <Label htmlFor="upload" variant="uploadLabel">
           Upload photo(s)
         </Label>

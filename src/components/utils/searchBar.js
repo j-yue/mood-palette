@@ -27,4 +27,20 @@ const getSuggestions = (search, list = SUGGESTIONS) => {
   return list.filter(word => regex.test(word));
 };
 
-export { randomWords, getSuggestions };
+//extract desired data from fetch response
+const filterResults = results => {
+  let images = [];
+  console.log(results.length);
+  if (results.length === 0) return [];
+  for (let imgObj of results) {
+    const { urls, links, user } = imgObj;
+    images.push({
+      src: urls.small,
+      download: links.download_location,
+      name: user.name,
+      link: user.links.html
+    });
+  }
+  return images;
+};
+export { randomWords, getSuggestions, filterResults };

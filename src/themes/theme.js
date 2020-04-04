@@ -4,7 +4,8 @@ export default {
     secondary: "#6FE4AD", //light green
     active: "#D9FDE4",
     black: "#000",
-    white: "#fff"
+    white: "#fff",
+    focused: "#D9FDE4"
   },
   fonts: {
     body: "'Open Sans', sans-serif",
@@ -38,9 +39,9 @@ export default {
   },
 
   radii: {
-    slidePanelRadius: "10px",
+    slidePanelRadius: ".75rem",
     tileRadius: "",
-    buttonRadius: "4px"
+    buttonRadius: ".4rem"
   },
 
   sizes: {
@@ -53,8 +54,8 @@ export default {
   space: {
     mainPaddingX: "8.5rem",
     mainPaddingY: "2rem",
-    scrollbarPadding: "50px",
-    scrollbarMargin: "-50px"
+    scrollbarPadding: "3rem",
+    scrollbarMargin: "-3rem"
   },
 
   buttons: {
@@ -84,7 +85,7 @@ export default {
     uploadButton: {
       bg: "secondary",
       color: "black",
-      borderRadius: "4px",
+      borderRadius: "buttonRadius",
       width: "100%"
     }
   },
@@ -98,8 +99,6 @@ export default {
       flexDirection: "column",
       justifyContent: "space-between",
       fontSize: "1rem",
-
-      // fontSize: [50, 100, 150, 200],
       lineHeight: "1.5rem",
       minWidth: "layoutW"
     },
@@ -112,11 +111,11 @@ export default {
       width: "100%",
       flexFlow: "column nowrap",
       height: "headerButtonsH",
-      // height: "3rem",
       color: "white",
-      border: "1px solid white",
-      borderColor: "secondary",
-      borderRadius: "4px"
+      // color: "secondary",
+      // border: "1px solid white",
+      // borderColor: "secondary",
+      borderRadius: "buttonRadius"
     },
     searchInput: {},
     upload: {
@@ -137,7 +136,6 @@ export default {
     moodUploaded: {
       width: "100%",
       mb: "2rem",
-      // px: "3.5rem",
       flexFlow: "row wrap",
       justifyContent: "space-between"
     },
@@ -191,11 +189,7 @@ export default {
       flexDirection: "column",
       flexWrap: "nowrap",
       overflowY: "scroll",
-      boxShadow: "0 4px 6px 1px rgba(0,0,0,0.5)"
-    },
-    credits: {
-      // position: "relative",
-      // bottom: "-"
+      boxShadow: "0 .4rem .5rem 1px rgba(0,0,0,0.5)"
     },
     slidePanelImageWrapper: {
       flexDirection: "row",
@@ -242,7 +236,7 @@ export default {
 
   forms: {
     searchInput: {
-      borderRadius: "4px 0 0 4px",
+      borderRadius: ".4rem 0 0 .4rem",
       borderColor: "secondary",
       color: "white",
       pl: ".5rem"
