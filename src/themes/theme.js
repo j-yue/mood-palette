@@ -73,6 +73,12 @@ export default {
   },
 
   variants: {
+    center: {
+      display: "flex",
+      flexFlow: "row nowrap",
+      alignItems: "center",
+      justifyContent: "center"
+    },
     header: {
       height: "headerH",
       bg: "primary",
