@@ -193,6 +193,10 @@ export default {
       overflowY: "scroll",
       boxShadow: "0 4px 6px 1px rgba(0,0,0,0.5)"
     },
+    credits: {
+      // position: "relative",
+      // bottom: "-"
+    },
     slidePanelImageWrapper: {
       flexDirection: "row",
       flexWrap: "wrap",

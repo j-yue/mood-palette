@@ -17,7 +17,7 @@ const filterResults = results => {
       src: urls.small,
       download: links.download_location,
       name: user.name,
-      link: user.links.self
+      link: user.links.html
     });
   }
   return images;

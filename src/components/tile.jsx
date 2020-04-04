@@ -14,15 +14,14 @@ const handleLoad = img => {
   return palette.map(rgb => toHex(rgb));
 };
 
-const Tile = ({ src, name, ...styles }) => {
+const Tile = ({ src, name, credits, link, ...styles }) => {
   const [palette, setPalette] = useState(null);
   const { setSlidePanel } = useContext(GlobalContext);
-
   let count = 0;
   return (
     <Flex
       variant="tile"
-      onClick={() => setSlidePanel({ src, palette, name })}
+      onClick={() => setSlidePanel({ src, palette, name, credits, link })}
       {...styles}
     >
       <BlurredImage

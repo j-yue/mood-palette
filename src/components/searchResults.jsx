@@ -12,7 +12,15 @@ const renderImages = (images, name) => {
     <React.Fragment>
       {images.map(index => {
         return (
-          <Tile src={index.src} name={name} key={count++} m="0" mb="2rem" />
+          <Tile
+            src={index.src}
+            name={name}
+            key={count++}
+            credits={index.name}
+            link={index.link}
+            m="0"
+            mb="2rem"
+          />
         );
       })}
     </React.Fragment>

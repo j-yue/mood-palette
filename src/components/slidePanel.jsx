@@ -1,14 +1,13 @@
-import React, { useState, useContext } from "react";
-import { Box, Image, Flex, Heading } from "rebass";
+import React from "react";
+import { Box, Image, Flex, Heading, Link } from "rebass";
 import Swatch from "./swatch";
 import ColorComparison from "./colorComparison";
 import Icon from "./icon";
 
 const SlidePanel = ({ data, setSlidePanel }) => {
-  const { src, palette, name } = data;
-
-  //generate unique key
+  const { src, palette, name, credits, link } = data;
   let count = 0;
+  console.log(link);
 
   return (
     <Flex variant="slidePanel" bg="white">
@@ -32,7 +31,21 @@ const SlidePanel = ({ data, setSlidePanel }) => {
         <Image src={src} variant="slidePanelBlurredImage" />
         <ColorComparison colors={palette} />
         <Image src={src} variant="slidePanelImage" />
-
+        {credits && (
+          <Link
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: "black",
+              textAlign: "center",
+              minWidth: "100%",
+              pt: "1rem"
+            }}
+          >
+            {credits}
+          </Link>
+        )}
         {/* swatches */}
         <Box width="100%">
           {palette.map(color => (
