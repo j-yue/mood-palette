@@ -29,7 +29,7 @@ export default {
       fontWeight: "400",
       textAlign: "center"
     },
-    moodHeader: {
+    header: {
       fontSize: "2.5rem",
       lineHeight: "3rem",
       fontWeight: "600",
@@ -115,8 +115,7 @@ export default {
       justifyContent: "space-between"
     },
     carouselWrapper: {
-      flexDirection: "row",
-      flexWrap: "nowrap",
+      flexFlow: "row nowrap",
       alignItems: "center"
     },
     carousel: {
@@ -130,8 +129,7 @@ export default {
       minHeight: "15rem",
       minWidth: "30%",
       maxWidth: "30%",
-      flexWrap: "nowrap",
-      flexDirection: "column",
+      flexFlow: "column nowrap",
       mr: "5%" //collapsing margins
     },
     tileImage: {
@@ -158,18 +156,9 @@ export default {
       right: "-20px", //hide scrollbar
       width: "35%",
       height: "100vh",
-      flexDirection: "column",
-      flexWrap: "nowrap",
-      overflowY: "scroll",
+      flexFlow: "column nowrap",
+      overflowY: "auto",
       boxShadow: "0 .4rem .5rem 1px rgba(0,0,0,0.5)"
-    },
-    slidePanelImageWrapper: {
-      flexDirection: "row",
-      flexWrap: "wrap",
-      width: "100%",
-      height: "100%",
-      justifyContent: "space-between",
-      objectFit: "inherit"
     },
     closeIcon: {
       opacity: ".54",
@@ -177,32 +166,10 @@ export default {
       width: "fit-content",
       alignSelf: "flex-end"
     },
-    slidePanelBlurredImage: {
+    slidePanelSmallImage: {
       borderRadius: "slidePanelRadius",
-      width: "calc(50% - 1rem)",
-      height: "10rem",
-      mr: "1rem",
-      filter: "blur(6px)"
-    },
-    colorComparison: {
-      height: "10rem",
-      borderRadius: "slidePanelRadius",
-      alignItems: "center",
-      justifyContent: "space-evenly",
-      width: "calc(50% - 1rem)",
-      ml: "1rem"
-    },
-    slidePanelImage: {
-      borderRadius: "slidePanelRadius",
-      width: "100%",
-      mt: "1rem",
-      objectFit: "cover"
-    },
-    roundColor: {
-      width: "2.5rem",
-      height: "2.5rem",
-      borderRadius: "1.25rem",
-      border: "3px solid #fff"
+      width: "calc(50% - .5rem)",
+      height: "10rem"
     }
   }
 };

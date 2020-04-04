@@ -7,16 +7,17 @@ import Icon from "./icon";
 const SlidePanel = ({ data, setSlidePanel }) => {
   const { src, palette, name, credits, link } = data;
   let count = 0;
-  console.log(link);
 
   return (
-    <Flex variant="slidePanel" bg="white">
+    <Flex variant="slidePanel">
+      {/* close button */}
       <Box variant="closeIcon" onClick={() => setSlidePanel(null)}>
         <Icon name="close-outline" />
       </Box>
 
+      {/* heading */}
       <Heading
-        variant="moodHeader"
+        variant="header"
         sx={{
           textAlign: "center",
           my: "2rem",
@@ -27,10 +28,26 @@ const SlidePanel = ({ data, setSlidePanel }) => {
       </Heading>
 
       {/* images */}
-      <Flex variant="slidePanelImageWrapper">
-        <Image src={src} variant="slidePanelBlurredImage" />
-        <ColorComparison colors={palette} />
-        <Image src={src} variant="slidePanelImage" />
+      <Flex sx={{ flexFlow: "row wrap" }}>
+        <Flex sx={{ flexFlow: "row nowrap", justifyContent: "space-between" }}>
+          {/* blurred img */}
+          <Image
+            src={src}
+            variant="slidePanelSmallImage"
+            sx={{ filter: "blur(6px)" }}
+          />
+          <ColorComparison colors={palette} />
+        </Flex>
+        {/* full size img */}
+        <Image
+          src={src}
+          sx={{
+            borderRadius: "slidePanelRadius",
+            mt: "1rem"
+          }}
+        />
+
+        {/* credits if unsplash photo */}
         {credits && (
           <Link
             href={link}
@@ -46,6 +63,7 @@ const SlidePanel = ({ data, setSlidePanel }) => {
             {credits}
           </Link>
         )}
+
         {/* swatches */}
         <Box width="100%">
           {palette.map(color => (
