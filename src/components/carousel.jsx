@@ -5,20 +5,13 @@ import ArrowIcon from "./arrowIcon";
 import { setLast, showArrow } from "./utils/carouselHelpers";
 //component displays 3 full images and part of the next image at one time
 
-// let NAME = "name";
-
 //images is an array of image srcs
 const Carousel = ({ images, name }) => {
-  // NAME = name;
-  // console.log(withHeading);
   //current keeps track of the index of the first img shown in the list
   const [current, setCurrent] = useState(0);
 
   //current row
   const [row, setRow] = useState(images.slice(0, 3));
-
-  //first image of next row - not sure if should show this
-  //const [preview, setPreview] = useState(images[current + 3]);
 
   //index of the first img in the last row
   const last = setLast(images.length);
@@ -42,7 +35,7 @@ const Carousel = ({ images, name }) => {
 
   return (
     <Box variant="mood">
-      <Heading as="h2" variant="moodHeader">
+      <Heading as="h2" variant="header">
         {name}
       </Heading>
       <Flex variant="carouselWrapper">

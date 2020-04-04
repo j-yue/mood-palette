@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Flex, Box } from "rebass";
+import { Flex } from "rebass";
 import ColorThief from "colorthief";
 import Color from "./color";
 import BlurredImage from "./blurredImage";
@@ -9,7 +9,6 @@ import { GlobalContext } from "../context/globalContext";
 
 const handleLoad = img => {
   const colorThief = new ColorThief();
-  // return colorThief.getPalette(img, 3);
   const palette = colorThief.getPalette(img, 3);
   return palette.map(rgb => toHex(rgb));
 };

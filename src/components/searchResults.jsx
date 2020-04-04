@@ -29,13 +29,9 @@ const renderImages = (images, name) => {
 
 const SearchResults = () => {
   const { search, searchResults } = useContext(GlobalContext);
-  //generate key
-  let count = 0;
   return (
     <React.Fragment>
       <Flex
-        className="searchResults"
-        // variant=""
         sx={{
           px: "3.5rem",
           flexFlow: "row wrap",
@@ -53,6 +49,6 @@ const SearchResults = () => {
 export default withHeading(
   SearchResults,
   "moodUploaded",
-  "moodHeader",
+  "header",
   "Search Results"
 );

@@ -1,69 +1,59 @@
 import React from "react";
 import { Box, Flex } from "rebass";
-
-const calcHeight = length => {
-  if (length === 0) return 0;
-  if (length <= 5) return length;
-  return 5;
-};
+import { calcHeight, handleClick } from "./utils/suggestionHelpers";
 
 const Suggestions = ({ ...props }) => {
   const { suggestions, setShowSuggestions, setGlobalSearch, setSearch } = props;
   let count = 0;
+  const isEmpty = suggestions.length === 0;
   return (
     <Box
       sx={{
-        zIndex: "100",
-        position: "relative",
-        border: "1px solid #8A8A8A",
-        borderRadius: "4px",
-        bg: "#2F2F2F;",
-        color: "white",
-        // top: "3rem",
-        // mt: "1rem",
-        display: suggestions.length > 0 ? "block" : "none",
-        maxHeight: `calc(2rem * ${calcHeight(suggestions.length)})`
+        borderRadius: "buttonRadius",
+        border: isEmpty ? "none" : "1px solid #8A8A8A",
+        bg: "#2F2F2F"
       }}
     >
       <Flex
         sx={{
-          // display: suggestions.length > 0 ? "block" : "none",
-          // border: "1px solid #8A8A8A",
-          // borderRadius: "4px",
-          // bg: "#2F2F2F;",
-          // color: "white",
-          overflowY: "auto",
-          maxHeight: "inherit",
+          zIndex: "500",
+          width: "100%",
           flexFlow: "row wrap",
-          alignItems: "flex-start"
+          fontSize: "1.25rem",
+          lineHeight: "2rem",
+          overflowY: "auto",
+          minHeight: isEmpty ? "0" : "2rem",
+          maxHeight: `calc(2rem*${calcHeight(suggestions.length)})`
         }}
       >
-        {suggestions.map(word => (
-          <Box
-            minWidth="100%"
-            key={count++}
-            sx={{
-              px: ".5rem",
-              fontSize: "1rem",
-              minHeight: "2rem",
-              lineHeight: "1.5rem",
-              "&:hover": {
-                bg: "blue"
+        {suggestions &&
+          suggestions.map(word => (
+            <Box
+              variant="center"
+              sx={{
+                display: "flex",
+                width: "100%",
+                pl: ".5rem",
+                maxHeight: "1.75rem",
+                "&:hover": {
+                  bg: "rgba(255, 255, 255, .25)"
+                }
+              }}
+              key={count++}
+              onClick={() =>
+                handleClick(
+                  word,
+                  setSearch,
+                  setGlobalSearch,
+                  setShowSuggestions
+                )
               }
-            }}
-            onClick={() => {
-              setSearch(word);
-              setGlobalSearch(word);
-              // setSearch(word);
-              setShowSuggestions(false);
-            }}
-          >
-            {word}
-          </Box>
-        ))}
+            >
+              {word}
+            </Box>
+          ))}
       </Flex>
     </Box>
   );
 };
-
 export default Suggestions;

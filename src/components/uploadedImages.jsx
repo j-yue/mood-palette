@@ -12,8 +12,6 @@ const UploadedImages = () => {
   let count = 0;
   return (
     <Flex
-      className="uploadedImages"
-      // variant=""
       sx={{
         px: "3.5rem",
         flexFlow: "row wrap",
@@ -30,7 +28,6 @@ const UploadedImages = () => {
 export default withHeading(
   UploadedImages,
   "moodUploaded",
-  "moodHeader",
+  "header",
   "Uploaded Images"
 );
-// export default UploadedImages;
