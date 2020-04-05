@@ -7,7 +7,7 @@ import Suggestions from "./suggestions";
 import {
   handleChange,
   handleKeyPress,
-  handleGlobalSearchChange
+  handleGlobalSearchChange,
 } from "./utils/searchBar";
 import { GlobalContext } from "../context/globalContext";
 
@@ -21,7 +21,7 @@ const SearchBar = () => {
     setSearch: setGlobalSearch,
     showSuggestions,
     setShowSuggestions,
-    setSearchResults
+    setSearchResults,
   } = useContext(GlobalContext);
 
   const [suggestions, setSuggestions] = useState([]);
@@ -42,7 +42,7 @@ const SearchBar = () => {
     <Flex
       variant="searchBar"
       //keep track of whether or not user clicked outside search bar
-      onClick={e => {
+      onClick={(e) => {
         e.stopPropagation();
       }}
     >
@@ -53,14 +53,14 @@ const SearchBar = () => {
         sx={{
           flexFlow: "row nowrap",
           justifyContent: "space-between",
-          borderColor: "secondary"
+          borderColor: "secondary",
         }}
       >
         <Input
           type="search"
           value={search}
-          placeholder="Search Unsplash photos"
-          onChange={e =>
+          placeholder="search for a color mood"
+          onChange={(e) =>
             handleChange(
               e.target.value,
               setSearch,
@@ -69,7 +69,7 @@ const SearchBar = () => {
               setGlobalSearch
             )
           }
-          onKeyPress={e => handleKeyPress(e, setGlobalSearch)}
+          onKeyPress={(e) => handleKeyPress(e, setGlobalSearch)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           sx={{
@@ -81,8 +81,8 @@ const SearchBar = () => {
             width: "100%",
             "&:focus": {
               outline: "none",
-              borderColor: "focused"
-            }
+              borderColor: "focused",
+            },
           }}
         />
 
@@ -93,7 +93,7 @@ const SearchBar = () => {
             minWidth: "buttonH",
             bg: isFocused ? "focused" : "secondary",
             borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0
+            borderBottomLeftRadius: 0,
           }}
         >
           <Icon name="search" />

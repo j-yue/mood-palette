@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Image, Flex, Heading, Link } from "rebass";
+import { Box, Image, Flex, Heading, Text } from "rebass";
 import Swatch from "./swatch";
 import ColorComparison from "./colorComparison";
 import Icon from "./icon";
+import Link from "./link";
 
 const SlidePanel = ({ data, setSlidePanel }) => {
   const { src, palette, name, credits, link } = data;
@@ -50,19 +51,12 @@ const SlidePanel = ({ data, setSlidePanel }) => {
 
         {/* credits if unsplash photo */}
         {credits && (
-          <Link
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              color: "black",
-              textAlign: "center",
-              minWidth: "100%",
-              pt: "1rem",
-            }}
-          >
-            {credits}
-          </Link>
+          <Text variant="credits">
+            {"Photo by "}
+            <Link href={link} text={credits} />
+            {" on "}
+            <Link href="https://unsplash.com/" text="Unsplash" />
+          </Text>
         )}
 
         {/* swatches */}

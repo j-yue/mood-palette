@@ -36,6 +36,13 @@ export default {
       pb: ".5rem",
       pl: "3.5rem",
     },
+    credits: {
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: ".75rem",
+      lineHeight: "1.25rem",
+      letterSpacing: ".25px",
+      color: "rgba(0,0,0,.6)",
+    },
   },
 
   radii: {
