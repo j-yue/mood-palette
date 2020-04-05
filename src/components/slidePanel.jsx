@@ -3,7 +3,7 @@ import { Box, Image, Flex, Heading, Text } from "rebass";
 import Swatch from "./swatch";
 import ColorComparison from "./colorComparison";
 import Icon from "./icon";
-import Link from "./link";
+import Credits from "./credits";
 
 const SlidePanel = ({ data, setSlidePanel }) => {
   const { src, palette, name, credits, link } = data;
@@ -50,14 +50,7 @@ const SlidePanel = ({ data, setSlidePanel }) => {
         />
 
         {/* credits if unsplash photo */}
-        {credits && (
-          <Text variant="credits">
-            {"Photo by "}
-            <Link href={link} text={credits} />
-            {" on "}
-            <Link href="https://unsplash.com/" text="Unsplash" />
-          </Text>
-        )}
+        {credits && <Credits link={link} name={credits} />}
 
         {/* swatches */}
         <Box width="100%">
