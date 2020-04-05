@@ -9,35 +9,35 @@ const Suggestions = ({ ...props }) => {
   return (
     <Box
       sx={{
+        zIndex: "200",
         borderRadius: "buttonRadius",
         border: isEmpty ? "none" : "1px solid #8A8A8A",
-        bg: "#2F2F2F"
+        bg: "#2F2F2F",
       }}
     >
       <Flex
         sx={{
-          zIndex: "500",
           width: "100%",
           flexFlow: "row wrap",
-          fontSize: "1.25rem",
-          lineHeight: "2rem",
           overflowY: "auto",
-          minHeight: isEmpty ? "0" : "2rem",
-          maxHeight: `calc(2rem*${calcHeight(suggestions.length)})`
+          borderRadius: "buttonRadius",
+          maxHeight: `calc(2rem*${calcHeight(suggestions.length)})`,
         }}
       >
         {suggestions &&
-          suggestions.map(word => (
+          suggestions.map((word) => (
             <Box
               variant="center"
               sx={{
                 display: "flex",
                 width: "100%",
                 pl: ".5rem",
-                maxHeight: "1.75rem",
+                fontSize: "1.25rem",
+                lineHeight: "2rem",
                 "&:hover": {
-                  bg: "rgba(255, 255, 255, .25)"
-                }
+                  bg: "focused",
+                  color: "#0C0C0C",
+                },
               }}
               key={count++}
               onClick={() =>
