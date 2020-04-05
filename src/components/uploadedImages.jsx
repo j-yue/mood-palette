@@ -5,7 +5,7 @@ import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
 
 const UploadedImages = () => {
-  const name = "Uploaded Images";
+  const name = "Uploaded photos";
   const { uploadedImages } = useContext(GlobalContext);
 
   //generate key

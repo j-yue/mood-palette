@@ -6,7 +6,10 @@ import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
 
 const renderImages = (images, name) => {
-  if (images.length === 0) return <Heading as="h2">No results found</Heading>;
+  if (images.length === 0) return null;
+  // <Heading as="h2" variant="header">
+  //   0 results found! Try rephrasing your search.
+  // </Heading>
   let count = 0;
   return (
     <React.Fragment>
@@ -31,18 +34,15 @@ const renderImages = (images, name) => {
 const SearchResults = () => {
   const { search, searchResults } = useContext(GlobalContext);
   return (
-    <React.Fragment>
-      <Flex
-        sx={{
-          px: "3.5rem",
-          flexFlow: "row wrap",
-          justifyContent: "space-between",
-        }}
-      >
-        {renderImages(searchResults, search)}
-      </Flex>
-      <Button variant="uploadeButton">More</Button>
-    </React.Fragment>
+    <Flex
+      sx={{
+        px: "3.5rem",
+        flexFlow: "row wrap",
+        justifyContent: "space-between",
+      }}
+    >
+      {renderImages(searchResults, search)}
+    </Flex>
   );
 };
 
@@ -51,5 +51,5 @@ export default withHeading(
   SearchResults,
   "moodUploaded",
   "header",
-  "Search Results"
+  "0 results found! Try rephrasing your search."
 );
