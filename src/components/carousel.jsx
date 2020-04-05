@@ -6,7 +6,10 @@ import { setLast, showArrow } from "./utils/carouselHelpers";
 //component displays 3 full images and part of the next image at one time
 
 //images is an array of image srcs
-const Carousel = ({ images, name }) => {
+const Carousel = ({ data, name }) => {
+  const images = data.map((img) => img.src);
+  // images = data.map((img) => img.src);
+  // console.log("you are in carousel", images);
   //current keeps track of the index of the first img shown in the list
   const [current, setCurrent] = useState(0);
 
@@ -47,7 +50,7 @@ const Carousel = ({ images, name }) => {
           <ArrowIcon name="arrow-left" />
         </Box>
         <Flex variant="carousel">
-          {row.map(src => (
+          {row.map((src) => (
             <Tile src={src} key={count++} name={name} />
           ))}
         </Flex>

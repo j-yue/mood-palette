@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "theme-ui";
 import { Flex, Box } from "rebass";
 
@@ -113,7 +113,7 @@ let state = {
 const App = () => {
   const [slidePanel, setSlidePanel] = useState(null);
   const [uploadedImages, setUploadedImages] = useState(null);
-  const [moods, setMoods] = useState({});
+  const [moods, setMoods] = useState([]);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(true);
@@ -147,7 +147,9 @@ const App = () => {
             <Header />
 
             <Workspace
-              moods={state.moods}
+              // moods={state.moods
+              moods={moods}
+              setMoods={setMoods}
               uploadedImages={uploadedImages}
               searchResults={searchResults}
               search={search}

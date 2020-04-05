@@ -60,12 +60,13 @@ const handleKeyPress = (e, setGlobalSearch) => {
   if (e.key === "Enter") setGlobalSearch(e.target.value);
 };
 
-const fetchResults = (globalSearch, setSearchResults) => {
+const fetchResults = word => {
   const KEY = process.env.REACT_APP_UNSPLASH_KEY;
   const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
-  fetch(ENDPT + globalSearch + `&client_id=${KEY}`)
+  return fetch(ENDPT + word + `&client_id=${KEY}`)
     .then(res => res.json())
-    .then(data => setSearchResults(filterResults(data.results)));
+    .then(data => data.results)
+    .then(results => filterResults(results));
 };
 
 //whenever global search changes, update local state
@@ -80,14 +81,14 @@ const handleGlobalSearchChange = (
 ) => {
   setSuggestions([]);
   setSearch(globalSearch);
-  fetchResults(globalSearch, setSearchResults);
+  fetchResults(globalSearch).then(data => setSearchResults(data));
   if (isEmpty) setGlobalSearch("");
 };
 
 export {
   randomWords,
-  filterResults,
   handleChange,
   handleKeyPress,
-  handleGlobalSearchChange
+  handleGlobalSearchChange,
+  fetchResults
 };
