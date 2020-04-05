@@ -35,9 +35,9 @@ const Workspace = ({ ...props }) => {
       {!search && uploadedImages && <UploadedImages />}
       {!search &&
         searchHistory.length > 0 &&
-        searchHistory.map(index => (
-          <SearchHistory history={index} key={historyCount++} />
-        ))}
+        searchHistory
+          .slice(0, 3)
+          .map(index => <SearchHistory history={index} key={historyCount++} />)}
       {!search &&
         moods.map(mood => (
           <Carousel images={mood} name={`carousel${count}`} key={count++} />
