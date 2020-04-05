@@ -7,20 +7,41 @@ import toHex from "./utils/toHex";
 
 import { GlobalContext } from "../context/globalContext";
 
-const handleLoad = img => {
+const handleLoad = (img) => {
   const colorThief = new ColorThief();
   const palette = colorThief.getPalette(img, 3);
-  return palette.map(rgb => toHex(rgb));
+  return palette.map((rgb) => toHex(rgb));
 };
 
-const Tile = ({ src, name, credits, link, ...styles }) => {
+const triggerDownload = (download) => {
+  const KEY = process.env.REACT_APP_UNSPLASH_KEY;
+  fetch(`${download}?client_id=${KEY}`);
+};
+
+const handleClick = (
+  setSlidePanel,
+  src,
+  palette,
+  name,
+  credits,
+  link,
+  download
+) => {
+  setSlidePanel({ src, palette, name, credits, link });
+  if (download) triggerDownload(download);
+};
+
+const Tile = ({ src, name, credits, link, download, ...styles }) => {
   const [palette, setPalette] = useState(null);
   const { setSlidePanel } = useContext(GlobalContext);
   let count = 0;
   return (
     <Flex
       variant="tile"
-      onClick={() => setSlidePanel({ src, palette, name, credits, link })}
+      onClick={() =>
+        handleClick(setSlidePanel, src, palette, name, credits, link, download)
+      }
+      // onClick={() => setSlidePanel({ src, palette, name, credits, link })}
       {...styles}
     >
       <BlurredImage
@@ -33,7 +54,7 @@ const Tile = ({ src, name, credits, link, ...styles }) => {
       {/* swatches */}
       <Flex variant="swatches">
         {palette &&
-          palette.map(color => <Color key={color + count++} color={color} />)}
+          palette.map((color) => <Color key={color + count++} color={color} />)}
       </Flex>
     </Flex>
   );

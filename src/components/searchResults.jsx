@@ -10,7 +10,7 @@ const renderImages = (images, name) => {
   let count = 0;
   return (
     <React.Fragment>
-      {images.map(index => {
+      {images.map((index) => {
         return (
           <Tile
             src={index.src}
@@ -18,6 +18,7 @@ const renderImages = (images, name) => {
             key={count++}
             credits={index.name}
             link={index.link}
+            download={index.download}
             m="0"
             mb="2rem"
           />
@@ -35,7 +36,7 @@ const SearchResults = () => {
         sx={{
           px: "3.5rem",
           flexFlow: "row wrap",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         }}
       >
         {renderImages(searchResults, search)}
