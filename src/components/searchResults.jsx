@@ -1,15 +1,11 @@
 import React, { useContext } from "react";
-import { Flex, Heading, Button } from "rebass";
+import { Flex } from "rebass";
 import Tile from "./tile";
 
 import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
 
 const renderImages = (images, name) => {
-  if (images.length === 0) return null;
-  // <Heading as="h2" variant="header">
-  //   0 results found! Try rephrasing your search.
-  // </Heading>
   let count = 0;
   return (
     <React.Fragment>
@@ -31,8 +27,7 @@ const renderImages = (images, name) => {
   );
 };
 
-const SearchResults = () => {
-  const { search, searchResults } = useContext(GlobalContext);
+const Images = ({ search, searchResults }) => {
   return (
     <Flex
       sx={{
@@ -46,10 +41,16 @@ const SearchResults = () => {
   );
 };
 
-// export default SearchResults;
-export default withHeading(
-  SearchResults,
-  "moodUploaded",
-  "header",
-  "0 results found! Try rephrasing your search."
-);
+const SearchResults = () => {
+  const resultsContext = useContext(GlobalContext);
+  const { search, searchResults } = resultsContext;
+  const everything = withHeading(
+    Images,
+    "moodUploaded",
+    "header",
+    search
+  )({ search, searchResults });
+  return everything;
+};
+
+export default SearchResults;
