@@ -21,7 +21,7 @@ const SlidePanel = ({ data, setSlidePanel }) => {
         sx={{
           textAlign: "center",
           my: "2rem",
-          p: "0"
+          p: "0",
         }}
       >
         {name}
@@ -43,7 +43,8 @@ const SlidePanel = ({ data, setSlidePanel }) => {
           src={src}
           sx={{
             borderRadius: "slidePanelRadius",
-            mt: "1rem"
+            mt: "1rem",
+            minWidth: "100%",
           }}
         />
 
@@ -57,7 +58,7 @@ const SlidePanel = ({ data, setSlidePanel }) => {
               color: "black",
               textAlign: "center",
               minWidth: "100%",
-              pt: "1rem"
+              pt: "1rem",
             }}
           >
             {credits}
@@ -66,7 +67,7 @@ const SlidePanel = ({ data, setSlidePanel }) => {
 
         {/* swatches */}
         <Box width="100%">
-          {palette.map(color => (
+          {palette.map((color) => (
             <Swatch color={color} key={count++} />
           ))}
         </Box>
