@@ -3,8 +3,7 @@ import Carousel from "./carousel";
 
 const SearchHistory = ({ history }) => {
   const name = history.search;
-  const images = history.results.map(img => img.src);
-  return <Carousel images={images} name={name} />;
+  return <Carousel data={history.results} name={name} />;
 };
 
 export default SearchHistory;

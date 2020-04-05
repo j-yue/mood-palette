@@ -8,8 +8,7 @@ import { setLast, showArrow } from "./utils/carouselHelpers";
 //images is an array of image srcs
 const Carousel = ({ data, name }) => {
   const images = data.map((img) => img.src);
-  // images = data.map((img) => img.src);
-  // console.log("you are in carousel", images);
+
   //current keeps track of the index of the first img shown in the list
   const [current, setCurrent] = useState(0);
 
