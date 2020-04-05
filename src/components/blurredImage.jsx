@@ -9,6 +9,7 @@ const BlurredImage = ({ src, variant, initialBlur, ...handlers }) => {
 
   return (
     <Image
+      crossOrigin="Anonymous"
       onMouseEnter={() => setBlur("6px")}
       onMouseLeave={() => setBlur(mouseLeaveBlur)}
       variant={variant}
@@ -17,10 +18,7 @@ const BlurredImage = ({ src, variant, initialBlur, ...handlers }) => {
       sx={{
         filter: `blur(${blur})`
       }}
-      onLoad={() => {
-        setPalette(handleLoad(imgRef.current));
-      }}
-      crossOrigin="Anonymous"
+      onLoad={() => setPalette(handleLoad(imgRef.current))}
     />
   );
 };
