@@ -15,13 +15,13 @@ const Workspace = ({ ...props }) => {
     setSearchHistory
   } = props;
 
+  //update search history state whenever there is a nonempty change made to search results
   useEffect(() => {
     if (searchResults.length > 0)
       setSearchHistory([
         { search: search, results: searchResults },
         ...searchHistory
       ]);
-    // setSearchHistory([searchResults, ...searchHistory]);
   }, [searchResults]);
 
   //generate unique key
