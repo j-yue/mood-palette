@@ -33,11 +33,11 @@ const Workspace = ({ ...props }) => {
       return await fetchResults(word);
     };
 
-    // let promises = words.map((word) => fetchMood(word));
-    // Promise.all(promises)
-    //   .then((results) => setMoods({ words: words, results: results }))
-    //   .then(() => setShowMoods(true));
-    console.log("workspace render");
+    let promises = words.map((word) => fetchMood(word));
+    Promise.all(promises)
+      .then((results) => setMoods({ words: words, results: results }))
+      .then(() => setShowMoods(true));
+    // console.log("workspace render");
   }, []);
 
   //generate unique key

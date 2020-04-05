@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Flex } from "rebass";
+import { Flex } from "rebass";
 import Tile from "./tile";
 import withHeading from "./hoc/withHeading";
 import { GlobalContext } from "../context/globalContext";
@@ -15,10 +15,10 @@ const UploadedImages = () => {
       sx={{
         px: "3.5rem",
         flexFlow: "row wrap",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
       }}
     >
-      {uploadedImages.map(image => (
+      {uploadedImages.map((image) => (
         <Tile src={image} name={name} key={count++} m="0" mb="2rem" />
       ))}
     </Flex>

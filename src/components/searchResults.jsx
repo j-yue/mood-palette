@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Flex, Heading, Button } from "rebass";
+import { Flex, Heading, Button } from "rebass";
 import Tile from "./tile";
 
 import withHeading from "./hoc/withHeading";
