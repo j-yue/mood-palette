@@ -5,7 +5,9 @@ import { GlobalContext } from "../context/globalContext";
 import handleChange from "./utils/upload";
 
 const Upload = () => {
-  const { uploadedImages, setUploadedImages } = useContext(GlobalContext);
+  const { uploadedImages, setUploadedImages, setSearch } = useContext(
+    GlobalContext
+  );
 
   return (
     <Flex width="20%">
@@ -16,7 +18,12 @@ const Upload = () => {
         accept=".png, .jpg, .jpeg"
         display="none"
         onChange={e =>
-          handleChange(e.target.files, uploadedImages, setUploadedImages)
+          handleChange(
+            e.target.files,
+            uploadedImages,
+            setUploadedImages,
+            setSearch
+          )
         }
       />
       <Button variant="primary" py=".5rem" px="1rem">

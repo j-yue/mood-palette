@@ -6,7 +6,7 @@ const hasValidExtension = img => {
   return false;
 };
 
-const handleChange = (files, uploadedImages, setUploadedImages) => {
+const handleChange = (files, uploadedImages, setUploadedImages, setSearch) => {
   let images = [];
   for (let file of files) {
     if (!hasValidExtension(file.name)) break;
@@ -14,6 +14,7 @@ const handleChange = (files, uploadedImages, setUploadedImages) => {
   }
   const result = uploadedImages ? [...images, ...uploadedImages] : [...images];
   setUploadedImages(result);
+  setSearch(""); //is user was searching perviously, go back to the main screen
 };
 
 export default handleChange;
