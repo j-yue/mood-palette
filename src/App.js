@@ -115,9 +115,9 @@ const App = () => {
   const [uploadedImages, setUploadedImages] = useState(null);
   const [moods, setMoods] = useState({});
   const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState(null);
-
+  const [searchResults, setSearchResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(true);
+  const [searchHistory, setSearchHistory] = useState([]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -135,7 +135,9 @@ const App = () => {
             searchResults,
             setSearchResults,
             showSuggestions,
-            setShowSuggestions
+            setShowSuggestions,
+            searchHistory,
+            setSearchHistory
           }}
         >
           <Box bg="white" width="100%">
@@ -149,6 +151,8 @@ const App = () => {
               uploadedImages={uploadedImages}
               searchResults={searchResults}
               search={search}
+              searchHistory={searchHistory}
+              setSearchHistory={setSearchHistory}
             />
           </Box>
         </GlobalProvider>
