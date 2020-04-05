@@ -9,8 +9,6 @@ import SearchHistory from "./searchHistory";
 const Workspace = ({ ...props }) => {
   const {
     uploadedImages,
-    // moods,
-    // setMoods,
     searchResults,
     search,
     searchHistory,
@@ -26,7 +24,6 @@ const Workspace = ({ ...props }) => {
       ]);
   }, [searchResults]);
 
-  // let showMoods = false;
   const [moods, setMoods] = useState([]);
   const [showMoods, setShowMoods] = useState(false);
 
@@ -36,16 +33,12 @@ const Workspace = ({ ...props }) => {
       return await fetchResults(word);
     };
 
-    let promises = words.map((word) => fetchMood(word));
-    Promise.all(promises)
-      .then((results) => setMoods({ words: words, results: results }))
-      .then(() => setShowMoods(true));
-    // setShowMoods(true);
+    // let promises = words.map((word) => fetchMood(word));
+    // Promise.all(promises)
+    //   .then((results) => setMoods({ words: words, results: results }))
+    //   .then(() => setShowMoods(true));
+    console.log("workspace render");
   }, []);
-
-  useEffect(() => {
-    if (showMoods) console.log(moods.words);
-  }, [showMoods]);
 
   //generate unique key
   let count = 0;

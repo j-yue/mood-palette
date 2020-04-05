@@ -9,111 +9,9 @@ import Header from "./components/header";
 import Workspace from "./components/workspace";
 import SlidePanel from "./components/slidePanel";
 
-let state = {
-  slidePanel: "images/feathers.jpg",
-  images: [
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg",
-    "images/feathers.jpg"
-  ],
-
-  colors: [
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"],
-    ["#000", "#888", "#000"]
-  ],
-
-  moods: [
-    [
-      "images/hahns.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/blueAndGold.jpg"
-    ],
-    ["images/feathers.jpg", "images/feathers.jpg", "images/feathers.jpg"],
-    ["images/feathers.jpg", "images/feathers.jpg"],
-    ["images/hahns.jpg"],
-    [
-      "images/hahns.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/blueAndGold.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/hahns.jpg"
-    ],
-    [
-      "images/hahns.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/blueAndGold.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/hahns.jpg"
-    ],
-    [
-      "images/hahns.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/blueAndGold.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/blueAndGold.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ],
-    [
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/blueAndGold.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg",
-      "images/feathers.jpg"
-    ]
-  ]
-};
-
 const App = () => {
   const [slidePanel, setSlidePanel] = useState(null);
   const [uploadedImages, setUploadedImages] = useState(null);
-  const [moods, setMoods] = useState([]);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(true);
@@ -128,8 +26,6 @@ const App = () => {
             setSlidePanel,
             uploadedImages,
             setUploadedImages,
-            moods,
-            setMoods,
             search,
             setSearch,
             searchResults,
@@ -137,7 +33,7 @@ const App = () => {
             showSuggestions,
             setShowSuggestions,
             searchHistory,
-            setSearchHistory
+            setSearchHistory,
           }}
         >
           <Box bg="white" width="100%">
@@ -147,9 +43,6 @@ const App = () => {
             <Header />
 
             <Workspace
-              // moods={state.moods
-              moods={moods}
-              setMoods={setMoods}
               uploadedImages={uploadedImages}
               searchResults={searchResults}
               search={search}
