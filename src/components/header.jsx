@@ -9,7 +9,7 @@ const Header = () => {
     <Flex variant="header">
       <Logo />
       <Flex variant="headerActions">
-        <Box sx={{ width: "40%" }}>
+        <Box sx={{ width: "50%" }}>
           <SearchBar />
         </Box>
         <Heading variant="or">or</Heading>

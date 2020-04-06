@@ -17,7 +17,7 @@ const Upload = () => {
         multiple
         accept=".png, .jpg, .jpeg"
         display="none"
-        onChange={e =>
+        onChange={(e) =>
           handleChange(
             e.target.files,
             uploadedImages,
@@ -26,8 +26,10 @@ const Upload = () => {
           )
         }
       />
-      <Button variant="primary" py=".5rem" px="1rem">
-        <Label htmlFor="upload">Upload photo(s)</Label>
+      <Button variant="primary" py=".5rem" px="1rem" width="100%">
+        <Label htmlFor="upload " width="fit-content">
+          Upload photo(s)
+        </Label>
       </Button>
     </Flex>
   );
