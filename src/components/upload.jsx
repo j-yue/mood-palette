@@ -26,8 +26,17 @@ const Upload = () => {
           )
         }
       />
-      <Button variant="primary" py=".5rem" px="1rem" width="100%">
-        <Label htmlFor="upload" width="fit-content">
+      <Button variant="primary" sx={{ p: "0", width: "100%" }}>
+        <Label
+          htmlFor="upload"
+          sx={{
+            display: "flex",
+            flexFlow: "row nowrap",
+            justifyContent: "center",
+            lineHeight: "3rem",
+            px: ".5rem",
+          }}
+        >
           Upload photo(s)
         </Label>
       </Button>
