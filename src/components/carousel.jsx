@@ -58,6 +58,7 @@ const Carousel = ({ data, name }) => {
               key={count++}
               name={name}
               credits={index.name}
+              link={index.link}
               download={index.download}
             />
           ))}
