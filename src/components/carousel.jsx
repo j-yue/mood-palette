@@ -44,7 +44,10 @@ const Carousel = ({ data, name }) => {
         <Box
           variant="arrowIcon"
           sx={{ display: showLeftArrow }}
-          onClick={() => setCurrent(current - 2)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setCurrent(current - 2);
+          }}
         >
           <ArrowIcon name="arrow-left" />
         </Box>
@@ -57,7 +60,10 @@ const Carousel = ({ data, name }) => {
         <Box
           variant="arrowIcon"
           sx={{ display: showRightArrow }}
-          onClick={() => setCurrent(current + 2)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setCurrent(current + 2);
+          }}
         >
           <ArrowIcon name="arrow-right" />
         </Box>

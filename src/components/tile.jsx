@@ -12,9 +12,10 @@ const Tile = ({ src, name, credits, link, download, ...styles }) => {
   return (
     <Flex
       variant="tile"
-      onClick={() =>
-        handleClick(setSlidePanel, src, palette, name, credits, link, download)
-      }
+      onClick={(e) => {
+        e.stopPropagation();
+        handleClick(setSlidePanel, src, palette, name, credits, link, download);
+      }}
       {...styles}
     >
       <BlurredImage

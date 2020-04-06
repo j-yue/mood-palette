@@ -19,7 +19,13 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Flex className="App" onClick={() => setShowSuggestions(false)}>
+      <Flex
+        className="App"
+        onClick={() => {
+          setShowSuggestions(false);
+          setSlidePanel(null);
+        }}
+      >
         <GlobalProvider
           value={{
             slidePanel,
@@ -40,7 +46,7 @@ const App = () => {
             {slidePanel && (
               <SlidePanel data={slidePanel} setSlidePanel={setSlidePanel} />
             )}
-            <Header />
+            <Header setSlidePanel={setSlidePanel} />
 
             <Workspace
               uploadedImages={uploadedImages}

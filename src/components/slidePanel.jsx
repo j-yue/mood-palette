@@ -10,7 +10,7 @@ const SlidePanel = ({ data, setSlidePanel }) => {
   let count = 0;
 
   return (
-    <Flex variant="slidePanel">
+    <Flex variant="slidePanel" onClick={(e) => e.stopPropagation()}>
       {/* close button */}
       <Box variant="closeIcon" onClick={() => setSlidePanel(null)}>
         <Icon name="close-outline" />
