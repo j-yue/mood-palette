@@ -71,7 +71,7 @@ const fetchResults = (word) => {
 
 //whenever global search changes, update local state
 //if global search is empty, set to empty string
-const handleGlobalSearchChange = async (
+const handleGlobalSearchChange = (
   setSuggestions,
   setSearch,
   globalSearch,
@@ -79,9 +79,10 @@ const handleGlobalSearchChange = async (
   setGlobalSearch,
   isEmpty
 ) => {
+  setSearchResults(null);
   setSuggestions([]);
   setSearch(globalSearch);
-  await fetchResults(globalSearch).then((data) => setSearchResults(data));
+  fetchResults(globalSearch).then((data) => setSearchResults(data));
   if (isEmpty) setGlobalSearch("");
 };
 

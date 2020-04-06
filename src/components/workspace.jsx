@@ -17,7 +17,7 @@ const Workspace = ({ ...props }) => {
 
   //update search history state whenever there is a nonempty change made to search results
   useEffect(() => {
-    if (searchResults.length > 0)
+    if (searchResults && searchResults.length > 0)
       setSearchHistory([
         { search: search, results: searchResults },
         ...searchHistory,
@@ -44,7 +44,7 @@ const Workspace = ({ ...props }) => {
   let count = 0;
   let historyCount = 0;
 
-  const showSearch = search !== "";
+  const showSearch = search !== "" && searchResults;
   const showUploadedImages = !showSearch && uploadedImages;
   const showSearchHistory = !showSearch && searchHistory.length > 0;
   const showMoods = !showSearch && moodsInitialized;
