@@ -4,9 +4,9 @@ import Logo from "./logo";
 import SearchBar from "./searchBar";
 import Upload from "./upload";
 
-const Header = () => {
+const Header = ({ setSlidePanel }) => {
   return (
-    <Flex variant="header">
+    <Flex variant="header" onClick={() => setSlidePanel(null)}>
       <Logo />
       <Flex variant="headerActions">
         <Box sx={{ width: "50%" }}>
