@@ -7,7 +7,7 @@ import { setLast, showArrow } from "./utils/carouselHelpers";
 
 //images is an array of image srcs
 const Carousel = ({ data, name }) => {
-  const images = data.map((img) => img.src);
+  const images = Object.values(data);
 
   //current keeps track of the index of the first img shown in the list
   const [current, setCurrent] = useState(0);
@@ -52,8 +52,14 @@ const Carousel = ({ data, name }) => {
           <ArrowIcon name="arrow-left" />
         </Box>
         <Flex variant="carousel">
-          {row.map((src) => (
-            <Tile src={src} key={count++} name={name} />
+          {row.map((index) => (
+            <Tile
+              src={index.src}
+              key={count++}
+              name={name}
+              credits={index.name}
+              download={index.download}
+            />
           ))}
         </Flex>
 

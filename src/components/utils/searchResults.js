@@ -9,9 +9,9 @@ const renderImages = (images, name) => {
       {images.map((index) => {
         return (
           <Tile
+            key={count++}
             src={index.src}
             name={name}
-            key={count++}
             credits={index.name}
             link={index.link}
             download={index.download}
