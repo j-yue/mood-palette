@@ -34,6 +34,7 @@ const Suggestions = ({ ...props }) => {
                 pl: ".5rem",
                 fontSize: "1.25rem",
                 lineHeight: "2rem",
+                justifyContent: "flex-start",
                 "&:hover": {
                   bg: "focused",
                   color: "#0C0C0C",
