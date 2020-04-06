@@ -27,7 +27,7 @@ const Upload = () => {
         }
       />
       <Button variant="primary" py=".5rem" px="1rem" width="100%">
-        <Label htmlFor="upload " width="fit-content">
+        <Label htmlFor="upload" width="fit-content">
           Upload photo(s)
         </Label>
       </Button>

@@ -37,7 +37,7 @@ const Workspace = ({ ...props }) => {
     // Promise.all(promises)
     //   .then((results) => setMoods({ words: words, results: results }))
     //   .then(() => setShowMoods(true));
-    console.log("workspace render");
+    // console.log("workspace render");
   }, []);
 
   //generate unique key
