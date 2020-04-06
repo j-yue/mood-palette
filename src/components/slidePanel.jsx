@@ -30,7 +30,13 @@ const SlidePanel = ({ data, setSlidePanel }) => {
 
       {/* images */}
       <Flex sx={{ flexFlow: "row wrap" }}>
-        <Flex sx={{ flexFlow: "row nowrap", justifyContent: "space-between" }}>
+        <Flex
+          sx={{
+            flexFlow: "row nowrap",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
           {/* blurred img */}
           <Image
             src={src}
