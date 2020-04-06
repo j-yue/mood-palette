@@ -7,7 +7,7 @@ const randomIndex = (length = SUGGESTIONS.length) => {
   return parseInt(Math.random() * length);
 };
 
-const randomIndexes = numWords => {
+const randomIndexes = (numWords) => {
   let indexes = [];
   while (indexes.length < numWords) {
     const index = randomIndex();
@@ -18,17 +18,17 @@ const randomIndexes = numWords => {
 
 const randomWords = (numWords = 3, list = SUGGESTIONS) => {
   const indexes = randomIndexes(numWords);
-  return indexes.map(index => list[index]);
+  return indexes.map((index) => list[index]);
 };
 
 const getSuggestions = (search, list = SUGGESTIONS) => {
   let regexStr = `^${search}.*$`; //any str beggining with search str
   let regex = new RegExp(regexStr, "ig");
-  return list.filter(word => regex.test(word));
+  return list.filter((word) => regex.test(word));
 };
 
 //extract desired data from fetch response
-const filterResults = results => {
+const filterResults = (results) => {
   let images = [];
   if (results.length === 0) return [];
   for (let imgObj of results) {
@@ -37,7 +37,7 @@ const filterResults = results => {
       src: urls.small,
       download: links.download_location,
       name: user.name,
-      link: user.links.html
+      link: user.links.html,
     });
   }
   return images;
@@ -48,7 +48,7 @@ const handleChange = (value, ...handlers) => {
     setSearch,
     setSuggestions,
     setShowSuggestions,
-    setGlobalSearch
+    setGlobalSearch,
   ] = handlers;
   setSearch(value);
   setSuggestions(getSuggestions(value));
@@ -60,18 +60,18 @@ const handleKeyPress = (e, setGlobalSearch) => {
   if (e.key === "Enter") setGlobalSearch(e.target.value);
 };
 
-const fetchResults = word => {
+const fetchResults = (word) => {
   const KEY = process.env.REACT_APP_UNSPLASH_KEY;
   const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
   return fetch(ENDPT + word + `&client_id=${KEY}`)
-    .then(res => res.json())
-    .then(data => data.results)
-    .then(results => filterResults(results));
+    .then((res) => res.json())
+    .then((data) => data.results)
+    .then((results) => filterResults(results));
 };
 
 //whenever global search changes, update local state
 //if global search is empty, set to empty string
-const handleGlobalSearchChange = (
+const handleGlobalSearchChange = async (
   setSuggestions,
   setSearch,
   globalSearch,
@@ -81,7 +81,7 @@ const handleGlobalSearchChange = (
 ) => {
   setSuggestions([]);
   setSearch(globalSearch);
-  fetchResults(globalSearch).then(data => setSearchResults(data));
+  await fetchResults(globalSearch).then((data) => setSearchResults(data));
   if (isEmpty) setGlobalSearch("");
 };
 
@@ -90,5 +90,5 @@ export {
   handleChange,
   handleKeyPress,
   handleGlobalSearchChange,
-  fetchResults
+  fetchResults,
 };
