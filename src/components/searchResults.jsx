@@ -5,13 +5,16 @@ import { GlobalContext } from "../context/globalContext";
 import Images from "./utils/searchResults";
 
 const SearchResults = () => {
-  const resultsContext = useContext(GlobalContext);
-  const { search, searchResults } = resultsContext;
+  const { search, searchResults } = useContext(GlobalContext);
+  const header =
+    searchResults.length === 0
+      ? "0 results found! Try rephrasing your search."
+      : search;
   const everything = withHeading(
     Images,
     "moodUploaded",
     "header",
-    search
+    header
   )({ search, searchResults });
   return everything;
 };
