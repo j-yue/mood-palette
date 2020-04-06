@@ -25,7 +25,7 @@ const Workspace = ({ ...props }) => {
   }, [searchResults]);
 
   const [moods, setMoods] = useState([]);
-  const [showMoods, setShowMoods] = useState(false);
+  const [moodsInitialized, setMoodsInitialized] = useState(false);
 
   useEffect(() => {
     const words = randomWords();
@@ -36,29 +36,33 @@ const Workspace = ({ ...props }) => {
     // let promises = words.map((word) => fetchMood(word));
     // Promise.all(promises)
     //   .then((results) => setMoods({ words: words, results: results }))
-    //   .then(() => setShowMoods(true));
-    // console.log("workspace render");
+    //   .then(() => setMoodsInitialized(true));
+    console.log("workspace render");
   }, []);
 
   //generate unique key
   let count = 0;
   let historyCount = 0;
 
+  const showSearch = search !== "";
+  const showUploadedImages = !showSearch && uploadedImages;
+  const showSearchHistory = !showSearch && searchHistory.length > 0;
+  const showMoods = !showSearch && moodsInitialized;
+
   return (
     <Flex variant="workspace">
-      {/* if user made a search, show results */}
-      {search && <SearchResults />}
-      {/* otherwise display any uploaded images and moods */}
-      {!search && uploadedImages && <UploadedImages />}
-      {!search &&
-        searchHistory.length > 0 &&
+      {showSearch && <SearchResults />}
+
+      {showUploadedImages && <UploadedImages />}
+
+      {showSearchHistory &&
         searchHistory
           .slice(0, 3)
           .map((index) => (
             <SearchHistory history={index} key={historyCount++} />
           ))}
+
       {showMoods &&
-        !search &&
         moods.words.map((word) => (
           <Carousel name={word} data={moods.results[count]} key={count++} />
         ))}
