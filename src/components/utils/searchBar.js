@@ -22,9 +22,14 @@ const randomWords = (numWords = 3, list = SUGGESTIONS) => {
 };
 
 const getSuggestions = (search, list = SUGGESTIONS) => {
-  let regexStr = `^${search}.*$`; //any str beggining with search str
-  let regex = new RegExp(regexStr, "ig");
-  return list.filter((word) => regex.test(word));
+  try {
+    let regexStr = `^${search}.*$`; //any str beggining with search str
+    let regex = new RegExp(regexStr, "ig");
+    return list.filter((word) => regex.test(word));
+  } catch {
+    // if user's search contains invalid characters, display the 0 results message
+    return [];
+  }
 };
 
 //extract desired data from fetch response
