@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Image, Flex, Heading, Text } from "rebass";
 import Swatch from "./swatch";
 import ColorComparison from "./colorComparison";
@@ -8,6 +8,14 @@ import Credits from "./credits";
 const SlidePanel = ({ data, setSlidePanel }) => {
   const { src, palette, name, credits, link } = data;
   let count = 0;
+
+  const [showSwatches, setShowSwatches] = useState(true);
+
+  //force swatches to rerender
+  useEffect(() => {
+    setShowSwatches(false);
+    setTimeout(() => setShowSwatches(true), 1);
+  }, [data]);
 
   return (
     <Flex variant="slidePanel" onClick={(e) => e.stopPropagation()}>
@@ -60,9 +68,8 @@ const SlidePanel = ({ data, setSlidePanel }) => {
 
         {/* swatches */}
         <Box width="100%">
-          {palette.map((color) => (
-            <Swatch color={color} key={count++} />
-          ))}
+          {showSwatches &&
+            palette.map((color) => <Swatch color={color} key={count++} />)}
         </Box>
       </Flex>
     </Flex>
