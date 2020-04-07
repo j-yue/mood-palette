@@ -34,18 +34,24 @@ const getSuggestions = (search, list = SUGGESTIONS) => {
 
 //extract desired data from fetch response
 const filterResults = (results) => {
-  let images = [];
-  if (results.length === 0) return [];
-  for (let imgObj of results) {
-    const { urls, links, user } = imgObj;
-    images.push({
-      src: urls.small,
-      download: links.download_location,
-      name: user.name,
-      link: user.links.html,
-    });
+  console.log("filter rsetults are", results);
+  try {
+    let images = [];
+    if (results.length === 0) return [];
+    for (let imgObj of results) {
+      const { urls, links, user } = imgObj;
+      images.push({
+        src: urls.small,
+        download: links.download_location,
+        name: user.name,
+        link: user.links.html,
+      });
+    }
+    return images;
+  } catch (e) {
+    console.log(e);
+    return "error";
   }
-  return images;
 };
 
 const handleChange = (value, ...handlers) => {
