@@ -4,36 +4,24 @@ import Tile from "../tile";
 
 const renderImages = (images, name) => {
   let count = 0;
-  try {
-    return (
-      <React.Fragment>
-        {images.map((index) => {
-          return (
-            <Tile
-              key={count++}
-              src={index.src}
-              name={name}
-              credits={index.name}
-              link={index.link}
-              download={index.download}
-              m="0"
-              mb="2rem"
-            />
-          );
-        })}
-      </React.Fragment>
-    );
-  } catch {
-    return null;
-  }
-};
-
-const createHeader = (name, results) => {
-  if (results === "error")
-    return "Unable to process search. Try rephrasing your search or try again tomorrow.";
-  else if (results.length === 0)
-    return "0 results found! Try rephrasing your search.";
-  return results;
+  return (
+    <React.Fragment>
+      {images.map((index) => {
+        return (
+          <Tile
+            key={count++}
+            src={index.src}
+            name={name}
+            credits={index.name}
+            link={index.link}
+            download={index.download}
+            m="0"
+            mb="2rem"
+          />
+        );
+      })}
+    </React.Fragment>
+  );
 };
 
 const Images = ({ search, searchResults }) => {
@@ -50,4 +38,4 @@ const Images = ({ search, searchResults }) => {
   );
 };
 
-export { Images, createHeader };
+export default Images;
