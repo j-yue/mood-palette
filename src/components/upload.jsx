@@ -35,6 +35,7 @@ const Upload = () => {
             justifyContent: "center",
             lineHeight: "3rem",
             px: ".5rem",
+            ":hover": { cursor: "pointer" },
           }}
         >
           Upload photo(s)

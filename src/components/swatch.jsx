@@ -36,6 +36,7 @@ const Swatch = ({ color }) => {
         fontSize: "1.5rem",
         lineHeight: "2rem",
         color: fontColor,
+        ":hover": { cursor: "pointer" },
       }}
       onClick={() => handleClick(color, setShowTooltip)}
     >

@@ -1,3 +1,7 @@
+const DEFAULT = { "&:hover": { cursor: "default" } };
+
+const POINTER = { "&:hover": { cursor: "pointer" } };
+
 export default {
   colors: {
     primary: "#1B1B1B", //blackish gray
@@ -20,6 +24,7 @@ export default {
       fontSize: "4rem",
       lineHeight: "5.5rem",
       textAlign: "left",
+      ...DEFAULT,
     },
     or: {
       width: "10%",
@@ -28,6 +33,7 @@ export default {
       lineHeight: "2rem",
       fontWeight: "400",
       textAlign: "center",
+      ...DEFAULT,
     },
     header: {
       fontSize: "2.5rem",
@@ -35,6 +41,7 @@ export default {
       fontWeight: "600",
       pb: ".5rem",
       pl: "3.5rem",
+      ...DEFAULT,
     },
     credits: {
       fontFamily: '"Roboto", sans-serif',
@@ -76,6 +83,7 @@ export default {
       alignItems: "center",
       justifyContent: "center",
       color: "black",
+      ...POINTER,
     },
   },
 
@@ -144,6 +152,7 @@ export default {
       maxWidth: "30%",
       flexFlow: "column nowrap",
       mr: "5%", //collapsing margins
+      ...POINTER,
     },
     tileImage: {
       objectFit: "cover",
@@ -155,10 +164,12 @@ export default {
       minHeight: "25%",
       maxHeight: "25%",
       zIndex: "2", //cover blur from blurredImage
+      ...POINTER,
     },
     arrowIcon: {
       position: "relative",
       maxWidth: "0",
+      ...POINTER,
     },
     slidePanel: {
       zIndex: "100",
