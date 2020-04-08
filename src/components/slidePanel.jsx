@@ -18,60 +18,74 @@ const SlidePanel = ({ data, setSlidePanel }) => {
   }, [data]);
 
   return (
-    <Flex variant="slidePanel" onClick={(e) => e.stopPropagation()}>
+    <Flex
+      variant="slidePanel"
+      onClick={(e) => e.stopPropagation()}
+      className="slidepanel"
+    >
       {/* close button */}
-      <Box variant="closeIcon" onClick={() => setSlidePanel(null)}>
-        <Icon name="close-outline" />
-      </Box>
-
-      {/* heading */}
-      <Heading
-        variant="header"
-        sx={{
-          textAlign: "center",
-          my: "2rem",
-          p: "0",
-        }}
-      >
-        {name}
-      </Heading>
-
-      {/* images */}
-      <Flex sx={{ flexFlow: "row wrap" }}>
-        <Flex
+      <Box className="inner" sx={{ width: "50vw", overflowY: "scroll" }}>
+        <Box
+          className="element"
           sx={{
-            flexFlow: "row nowrap",
-            justifyContent: "space-between",
-            width: "100%",
+            maxWidth: "33vw",
+            p: "1rem",
           }}
         >
-          {/* blurred img */}
-          <Image
-            src={src}
-            variant="slidePanelSmallImage"
-            sx={{ filter: "blur(6px)" }}
-          />
-          <ColorComparison colors={palette} />
-        </Flex>
-        {/* full size img */}
-        <Image
-          src={src}
-          sx={{
-            borderRadius: "slidePanelRadius",
-            mt: "1rem",
-            minWidth: "100%",
-          }}
-        />
+          <Box variant="closeIcon" onClick={() => setSlidePanel(null)}>
+            <Icon name="close-outline" />
+          </Box>
 
-        {/* credits if unsplash photo */}
-        {credits && <Credits link={link} name={credits} />}
+          {/* heading */}
+          <Heading
+            variant="header"
+            sx={{
+              textAlign: "center",
+              my: "2rem",
+              p: "0",
+            }}
+          >
+            {name}
+          </Heading>
 
-        {/* swatches */}
-        <Box width="100%">
-          {showSwatches &&
-            palette.map((color) => <Swatch color={color} key={count++} />)}
+          {/* images */}
+          <Flex sx={{ flexFlow: "row wrap" }}>
+            <Flex
+              sx={{
+                flexFlow: "row nowrap",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              {/* blurred img */}
+              <Image
+                src={src}
+                variant="slidePanelSmallImage"
+                sx={{ filter: "blur(6px)" }}
+              />
+              <ColorComparison colors={palette} />
+            </Flex>
+            {/* full size img */}
+            <Image
+              src={src}
+              sx={{
+                borderRadius: "slidePanelRadius",
+                mt: "1rem",
+                minWidth: "100%",
+              }}
+            />
+
+            {/* credits if unsplash photo */}
+            {credits && <Credits link={link} name={credits} />}
+
+            {/* swatches */}
+            <Box width="100%">
+              {showSwatches &&
+                palette.map((color) => <Swatch color={color} key={count++} />)}
+            </Box>
+          </Flex>
         </Box>
-      </Flex>
+      </Box>
     </Flex>
   );
 };
