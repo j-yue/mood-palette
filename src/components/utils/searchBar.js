@@ -34,6 +34,7 @@ const getSuggestions = (search, list = SUGGESTIONS) => {
 
 //extract desired data from fetch response
 const filterResults = (results) => {
+  // try {
   let images = [];
   if (results.length === 0) return [];
   for (let imgObj of results) {
@@ -46,6 +47,9 @@ const filterResults = (results) => {
     });
   }
   return images;
+  // } catch (e) {
+  //   return "error";
+  // }
 };
 
 const handleChange = (value, ...handlers) => {
@@ -82,12 +86,20 @@ const handleGlobalSearchChange = (
   globalSearch,
   setSearchResults,
   setGlobalSearch,
-  isEmpty
+  isEmpty,
+  setApiError
 ) => {
+  //reset states
   setSearchResults(null);
   setSuggestions([]);
+  setApiError(false);
   setSearch(globalSearch);
-  fetchResults(globalSearch).then((data) => setSearchResults(data));
+  fetchResults(globalSearch)
+    .then((data) => setSearchResults(data))
+    .catch(() => {
+      setApiError(true);
+      setSearchResults([]);
+    });
   if (isEmpty) setGlobalSearch("");
 };
 

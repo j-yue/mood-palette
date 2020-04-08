@@ -16,6 +16,7 @@ const App = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(true);
   const [searchHistory, setSearchHistory] = useState([]);
+  const [apiError, setApiError] = useState(false); //something went wrong when calling unsplash api
 
   return (
     <ThemeProvider theme={theme}>
@@ -40,6 +41,8 @@ const App = () => {
             setShowSuggestions,
             searchHistory,
             setSearchHistory,
+            apiError,
+            setApiError,
           }}
         >
           <Box bg="white" width="100%">

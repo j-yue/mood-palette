@@ -22,6 +22,7 @@ const SearchBar = () => {
     showSuggestions,
     setShowSuggestions,
     setSearchResults,
+    setApiError,
   } = useContext(GlobalContext);
 
   const [suggestions, setSuggestions] = useState([]);
@@ -34,7 +35,8 @@ const SearchBar = () => {
       globalSearch,
       setSearchResults,
       setGlobalSearch,
-      search.length === 0
+      search.length === 0,
+      setApiError
     );
   }, [globalSearch]);
 
