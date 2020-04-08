@@ -61,7 +61,7 @@ export default {
   sizes: {
     headerH: "15.5rem",
     headerButtonsH: "2.75rem",
-    layoutW: "1024px",
+    layoutW: "768px",
     buttonH: "3rem",
   },
 
