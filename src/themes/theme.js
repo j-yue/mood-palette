@@ -189,6 +189,7 @@ export default {
       position: "absolute",
       width: "fit-content",
       alignSelf: "flex-end",
+      ...POINTER,
     },
     slidePanelSmallImage: {
       borderRadius: "slidePanelRadius",
