@@ -140,7 +140,7 @@ export default {
       alignItems: "center",
     },
     carousel: {
-      minWidth: "100%",
+      width: "100%",
       px: "3.5rem",
       mr: "-5%", //override margin from last image
       justifyContent: "flex-start",
