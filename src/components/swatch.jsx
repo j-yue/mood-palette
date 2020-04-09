@@ -18,10 +18,6 @@ const Swatch = ({ color }) => {
     }
   }, [showTooltip]);
 
-  useEffect(() => {
-    console.log("swatch mounted");
-    return () => console.log("swatch will unmount");
-  }, []);
   return (
     <Flex
       sx={{
