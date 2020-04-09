@@ -20,7 +20,7 @@ body,
   height: 100%;
   min-height: 100vh !important;
   background-color: #fff;
-  min-width: 720px;
+  min-width: 768px;
 }
 
 body {
