@@ -77,7 +77,7 @@ const fetchResults = (word) => {
   //   .then((data) => data.results)
   //   .then((results) => filterResults(results));
   const ENDPT = process.env.REACT_APP_PROXY_API;
-  return fetch(`${ENDPT}/${word}`)
+  return fetch(`${ENDPT}${word}`)
     .then((res) => res.json())
     .then((data) => data.results)
     .then((results) => filterResults(results));
