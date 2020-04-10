@@ -76,8 +76,9 @@ const fetchResults = (word) => {
   //   .then((res) => res.json())
   //   .then((data) => data.results)
   //   .then((results) => filterResults(results));
+  const url = "https://mood-colors-api.herokuapp.com/" + word;
   const ENDPT = process.env.REACT_APP_PROXY_API;
-  return fetch(`${ENDPT}${word}`)
+  return fetch(url)
     .then((res) => res.json())
     .then((data) => data.results)
     .then((results) => filterResults(results));
