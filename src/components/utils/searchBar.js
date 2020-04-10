@@ -70,9 +70,14 @@ const handleKeyPress = (e, setGlobalSearch) => {
 };
 
 const fetchResults = (word) => {
-  const KEY = process.env.REACT_APP_UNSPLASH_KEY;
-  const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
-  return fetch(ENDPT + word + `&client_id=${KEY}`)
+  // const KEY = process.env.REACT_APP_UNSPLASH_KEY;
+  // const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
+  // return fetch(ENDPT + word + `&client_id=${KEY}`)
+  //   .then((res) => res.json())
+  //   .then((data) => data.results)
+  //   .then((results) => filterResults(results));
+  const ENDPT = process.env.REACT_APP_PROXY_API;
+  return fetch(`${ENDPT}/word`)
     .then((res) => res.json())
     .then((data) => data.results)
     .then((results) => filterResults(results));
