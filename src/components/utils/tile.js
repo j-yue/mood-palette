@@ -13,7 +13,7 @@ const triggerDownload = (download) => {
   const parsedDownload = download.split("/");
   const id = parsedDownload[parsedDownload.length - 2];
   const url = "https://mood-colors-api.herokuapp.com/triggerDownload/" + id;
-  fetch(url);
+  fetch(url).then((res) => res);
 };
 
 //set slide panel and trigger download if unsplash image
