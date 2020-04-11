@@ -70,9 +70,7 @@ const handleKeyPress = (e, setGlobalSearch) => {
 };
 
 const fetchResults = (word) => {
-  // const url = "https://mood-colors-api.herokuapp.com/" + word;
-  // const ENDPT = process.env.REACT_APP_PROXY_API;
-  const url = process.env.REACT_APP_BACKEND + word;
+  const url = "https://mood-colors-api.herokuapp.com/" + word;
   return fetch(url)
     .then((res) => res.json())
     .then((data) => data.results)
