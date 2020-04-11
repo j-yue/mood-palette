@@ -70,14 +70,9 @@ const handleKeyPress = (e, setGlobalSearch) => {
 };
 
 const fetchResults = (word) => {
-  // const KEY = process.env.REACT_APP_UNSPLASH_KEY;
-  // const ENDPT = `https://api.unsplash.com/search/photos?page=1&query=`;
-  // return fetch(ENDPT + word + `&client_id=${KEY}`)
-  //   .then((res) => res.json())
-  //   .then((data) => data.results)
-  //   .then((results) => filterResults(results));
-  const url = "https://mood-colors-api.herokuapp.com/" + word;
-  const ENDPT = process.env.REACT_APP_PROXY_API;
+  // const url = "https://mood-colors-api.herokuapp.com/" + word;
+  // const ENDPT = process.env.REACT_APP_PROXY_API;
+  const url = process.env.REACT_APP_BACKEND + word;
   return fetch(url)
     .then((res) => res.json())
     .then((data) => data.results)
