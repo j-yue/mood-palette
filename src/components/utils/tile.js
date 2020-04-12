@@ -10,12 +10,9 @@ const handleLoad = (img) => {
 
 //trigger download per unsplash api terms
 const triggerDownload = (download) => {
-  const parsedDownload = download.split("/");
-  const id = parsedDownload[parsedDownload.length - 2];
-  const url = "https://mood-colors-api.herokuapp.com/triggerDownload/" + id;
-  fetch(url)
-    .then(() => console.log("done"))
-    .catch((e) => console.log("something went wrong ", e));
+  const url =
+    "https://mood-colors-api.herokuapp.com/triggerDownload/" + download;
+  fetch(url);
 };
 
 //set slide panel and trigger download if unsplash image
