@@ -10,8 +10,9 @@ const handleLoad = (img) => {
 
 //trigger download per unsplash api terms
 const triggerDownload = (download) => {
-  const url =
-    "https://mood-colors-api.herokuapp.com/triggerDownload/" + download;
+  const parsedDownload = download.split("/");
+  const id = parsedDownload[parsedDownload.length - 2];
+  const url = "https://mood-colors-api.herokuapp.com/triggerDownload/" + id;
   fetch(url);
 };
 
