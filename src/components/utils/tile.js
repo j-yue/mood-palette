@@ -12,7 +12,7 @@ const handleLoad = (img) => {
 const triggerDownload = (download) => {
   const parsedDownload = download.split("/");
   const id = parsedDownload[parsedDownload.length - 2];
-  const url = "https://mood-colors-api.herokuapp.com/triggerDownload/" + id;
+  const url = "https://mood-palette-backend.onrender.com/" + id;
   fetch(url);
 };
 

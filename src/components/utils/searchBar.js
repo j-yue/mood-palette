@@ -53,12 +53,8 @@ const filterResults = (results) => {
 };
 
 const handleChange = (value, ...handlers) => {
-  const [
-    setSearch,
-    setSuggestions,
-    setShowSuggestions,
-    setGlobalSearch,
-  ] = handlers;
+  const [setSearch, setSuggestions, setShowSuggestions, setGlobalSearch] =
+    handlers;
   setSearch(value);
   setSuggestions(getSuggestions(value));
   setShowSuggestions(true);
@@ -70,7 +66,7 @@ const handleKeyPress = (e, setGlobalSearch) => {
 };
 
 const fetchResults = (word) => {
-  const url = "https://mood-colors-api.herokuapp.com/" + word;
+  const url = "https://mood-palette-backend.onrender.com/" + word;
   return fetch(url)
     .then((res) => res.json())
     .then((data) => data.results)
